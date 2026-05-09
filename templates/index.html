@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bekzat Uraimov — CS student building Telegram bots, Chrome extensions, and AI tools in Python." />
+  <title>Bekzat Uraimov</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <nav>
+    <a href="#top" class="logo">bekzat<span>.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle dark mode">
+          <span class="mode-icon">○</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main id="top">
+
+    <section id="hero">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Bekzat Uraimov</h1>
+      <p class="hero-sub">
+        <span id="typed"></span><span class="cursor">|</span>
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">See my work</a>
+        <a href="https://github.com/{{ github_user }}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub →</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <p class="section-tag">About</p>
+      <h2>Builder.</h2>
+      <p class="about-body">
+        I'm a computer science student who solves problems and ships finished products. Most of my work is
+        in Python and Java, with machine learning and LLM tooling mixed in. I learn fastest by building,
+        often at hackathons. Open to opportunities where I can keep shipping and keep learning at the same time.
+      </p>
+      <ul class="stack-list">
+        <li>Python</li>
+        <li>Java</li>
+        <li>JavaScript</li>
+        <li>Flask</li>
+        <li>FastAPI</li>
+        <li>LangGraph</li>
+        <li>LiteLLM</li>
+        <li>Machine learning</li>
+        <li>LLM APIs</li>
+        <li>Chrome extensions</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <p class="section-tag">Projects</p>
+      <h2>What I've been building.</h2>
+      <p class="projects-note">Pulled live from GitHub — updates whenever I push something new.</p>
+      <div id="projects-grid" class="projects-grid">
+        <div class="project-card skeleton">Loading projects…</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="section-tag">Contact</p>
+      <h2>Let's talk.</h2>
+      <p class="contact-body">
+        Open to internships, collaborations, and the occasional hackathon team.
+      </p>
+      <div class="contact-actions">
+        <button id="copy-email" class="btn btn-primary" data-email="bkzturaimov@gmail.com">
+          <span class="copy-label">bkzturaimov@gmail.com</span>
+          <span class="copy-status"></span>
+        </button>
+        <div class="socials">
+          <a href="https://github.com/{{ github_user }}" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .3C5.4.3 0 5.7 0 12.4c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.3 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.4C24 5.7 18.6.3 12 .3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/bekzat-uraimov/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3v9zM6.5 8.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-3v-4.7c0-1.1-.4-1.9-1.4-1.9-.8 0-1.3.5-1.5 1.1-.1.2-.1.5-.1.8V19h-3v-9h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.4 1.3 3.4 4V19z"/></svg>
+          </a>
+          <a href="mailto:bkzturaimov@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built with Flask · <a href="https://github.com/{{ github_user }}/portfolio" target="_blank" rel="noopener">source on GitHub</a></p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
