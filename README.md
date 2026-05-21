@@ -1,6 +1,15 @@
 # portfolio
 
-Personal site for [@bekzat-uraimov](https://github.com/bekzat-uraimov). Flask + a single page that pulls projects live from the GitHub API.
+Personal site for [@bekzat-uraimov](https://github.com/bekzat-uraimov). Flask backend, single-page frontend, projects pulled live from the GitHub API. Deployed on Vercel.
+
+**Live:** https://your-vercel-url.vercel.app *(replace once deployed)*
+
+## Stack
+
+- Flask 3 — routes and the cached GitHub proxy
+- Vanilla JS — typed hero, dark mode toggle, project loader
+- GitHub GraphQL API — real pinned repos when a token is set
+- Vercel — hosting (serverless, no cold-sleep)
 
 ## Run locally
 
@@ -13,13 +22,17 @@ Open http://localhost:5000.
 
 ## Configuration
 
-Three optional env vars control which projects show up:
+Two env vars control the Projects section. Both are optional but you want one of them — otherwise the section is empty.
 
-- `GITHUB_USER` — defaults to `bekzat-uraimov`.
-- `GITHUB_TOKEN` — a personal access token. When set, the projects section pulls your **actual pinned repos** via GitHub's GraphQL API. Without it, falls back to REST. Use a fine-grained token with read-only access to public repos.
-- `GITHUB_PINNED` — comma-separated repo names (e.g. `HabitTrackerBot,Poly_Predictor_Kit,AI_Visual_Novel_Creator`). Used as a manual override when no token is set, or as a way to feature specific repos that aren't actually pinned on your profile.
+| Var | Purpose |
+|---|---|
+| `GITHUB_USER` | Defaults to `bekzat-uraimov`. |
+| `GITHUB_TOKEN` | Fine-grained personal access token with read access to public repos. When set, the site shows your real pinned repos via GraphQL. |
+| `GITHUB_PINNED` | Comma-separated repo names, e.g. `HabitTrackerBot,Poly_Predictor_Kit`. Used when no token is set. |
 
-Selection order: token → GraphQL pinned. Else if `GITHUB_PINNED` set → those by name. Else all public repos sorted by recently updated.
+Selection order: `GITHUB_TOKEN` (real pinned) → `GITHUB_PINNED` (manual list) → empty.
+
+Local example:
 
 ```
 export GITHUB_USER=your-handle
@@ -27,13 +40,32 @@ export GITHUB_TOKEN=ghp_xxx
 python app.py
 ```
 
-## What's in here
+## Deploy (Vercel)
 
-- `app.py` — Flask routes plus an in-memory cached proxy for the GitHub API
-- `templates/index.html` — single page (hero, about, projects, contact)
-- `static/css/style.css` — minimal black/white with one accent
-- `static/js/script.js` — typed hero subtitle, dark mode toggle, copy-email, project loader
+The repo is already wired for Vercel: `vercel.json` rewrites all traffic to `api/index.py`, which imports the Flask app. No Procfile, no gunicorn.
 
-## Deploy
+1. Push to GitHub.
+2. vercel.com → New Project → import the repo.
+3. Add env vars: `GITHUB_USER`, `GITHUB_TOKEN`.
+4. Deploy. First build is ~30s.
 
-Any platform that runs Flask works. Render, Railway, Fly.io, and PythonAnywhere are all free for small apps. Add a `Procfile` with `web: gunicorn app:app` and a Python-version pin in `runtime.txt` if your platform needs them.
+## Project structure
+
+```
+.
+├── api/
+│   └── index.py       # Vercel entry — imports app:app
+├── static/
+│   ├── css/style.css
+│   └── js/script.js
+├── templates/
+│   └── index.html
+├── app.py             # Flask routes + GitHub fetch
+├── requirements.txt
+├── vercel.json
+└── README.md
+```
+
+## License
+
+MIT.

@@ -92,6 +92,7 @@ def fetch_repos():
     if _cache["data"] and now - _cache["fetched_at"] < CACHE_TTL:
         return _cache["data"]
 
+    # pinned-only: token → real pinned, else manual list, else empty
     if GITHUB_TOKEN:
         repos = fetch_pinned_via_graphql()
     elif GITHUB_PINNED:
@@ -99,7 +100,7 @@ def fetch_repos():
         by_name = {r["name"]: r for r in all_repos}
         repos = [by_name[n] for n in GITHUB_PINNED if n in by_name]
     else:
-        repos = fetch_all_repos()
+        repos = []
 
     _cache["data"] = repos
     _cache["fetched_at"] = now
@@ -120,4 +121,4 @@ def api_repos():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5050)
