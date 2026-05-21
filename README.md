@@ -2,7 +2,7 @@
 
 Personal site for [@bekzat-uraimov](https://github.com/bekzat-uraimov). Flask backend, single-page frontend, projects pulled live from the GitHub API. Deployed on Vercel.
 
-**Live:** https://your-vercel-url.vercel.app *(replace once deployed)*
+**Live:** https://bekzat.dev
 
 ## Stack
 
