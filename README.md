@@ -4,8 +4,6 @@ My personal site. Flask backend, single-page frontend, projects pulled live from
 
 **Live:** https://bekzat.dev
 
-<img width="1501" height="784" alt="home" src="https://github.com/user-attachments/assets/4d41b86c-f099-410c-b564-dd2735e28a04" />
-
 
 ## Stack
 
