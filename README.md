@@ -1,6 +1,6 @@
 # portfolio
 
-Personal site for [@bekzat-uraimov](https://github.com/bekzat-uraimov). Flask backend, single-page frontend, projects pulled live from the GitHub API. Deployed on Vercel.
+My personal site. Flask backend, single-page frontend, projects pulled live from the GitHub API. Deployed on Vercel.
 
 **Live:** https://bekzat.dev
 
