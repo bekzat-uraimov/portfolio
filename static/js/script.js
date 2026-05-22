@@ -1,8 +1,8 @@
-// Dark mode toggle (persists across reloads)
+// Theme: default to dark, only switch to light if the user explicitly set it.
 const toggle = document.getElementById('mode-toggle');
 
-if (localStorage.getItem('mode') === 'dark') {
-  document.body.classList.add('dark');
+if (localStorage.getItem('mode') === 'light') {
+  document.body.classList.remove('dark');
 }
 
 toggle?.addEventListener('click', () => {
@@ -10,12 +10,11 @@ toggle?.addEventListener('click', () => {
   localStorage.setItem('mode', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
 
-// Typed hero subtitle
+// Typewriter
 const phrases = [
-  'Building',
-  'Shipping',
-  'Learning',
-  'Open to opportunities',
+  'CS undergrad, Seattle area.',
+  'I build things that work.',
+  'open to internships and full-time roles.',
 ];
 
 const typed = document.getElementById('typed');
@@ -82,7 +81,6 @@ function renderCard(repo) {
     .map(t => `<span class="badge">${escape(t)}</span>`).join('');
   const lang = repo.language ? `<span class="badge">${escape(repo.language)}</span>` : '';
   const fork = repo.forked ? '<span class="fork-tag">fork</span>' : '';
-  const stars = repo.stars > 0 ? `★ ${repo.stars}` : '';
 
   return `
     <article class="project-card">
@@ -90,7 +88,6 @@ function renderCard(repo) {
       <p class="project-desc">${escape(repo.description) || 'No description.'}</p>
       <div class="project-meta">${lang}${topics}</div>
       <div class="project-foot">
-        <span>${stars}</span>
         <a href="${repo.url}" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
     </article>
