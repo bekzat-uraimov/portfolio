@@ -4,8 +4,8 @@
   --fg: #111111;
   --fg-mute: #5a5a5a;
   --line: #ececec;
-  --accent: #ff5b1f;
-  --accent-soft: rgba(255, 91, 31, 0.08);
+  --accent: #1a6b00;
+  --accent-soft: rgba(26, 107, 0, 0.08);
   --card: #ffffff;
 
   --serif: 'Instrument Serif', Georgia, serif;
@@ -19,8 +19,8 @@ body.dark {
   --fg: #f0eee8;
   --fg-mute: #9a9a95;
   --line: #232323;
-  --accent: #ff7a44;
-  --accent-soft: rgba(255, 122, 68, 0.10);
+  --accent: #c8ff57;
+  --accent-soft: rgba(200, 255, 87, 0.10);
   --card: #161616;
 }
 
@@ -196,14 +196,14 @@ h2 em {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--accent);
-  border: 1px solid rgba(255, 91, 31, 0.3);
+  border: 1px solid rgba(26, 107, 0, 0.3);
   border-radius: 100px;
   padding: 5px 12px;
   margin-bottom: 28px;
 }
 
 body.dark .available-pill {
-  border-color: rgba(255, 122, 68, 0.32);
+  border-color: rgba(200, 255, 87, 0.32);
 }
 
 .available-pill::before {
@@ -272,7 +272,7 @@ body.dark .available-pill {
 }
 
 .btn-primary:hover {
-  background: #e84d10;
+  background: #125200;
 }
 
 body.dark .btn-primary {
@@ -280,7 +280,7 @@ body.dark .btn-primary {
 }
 
 body.dark .btn-primary:hover {
-  background: #ff8d5c;
+  background: #b3e63e;
 }
 
 .btn-ghost {
