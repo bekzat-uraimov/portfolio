@@ -1,4 +1,4 @@
-// Theme: default to dark, only switch to light if the user explicitly set it.
+// Theme: default to dark, only switch to light if user explicitly set it
 const toggle = document.getElementById('mode-toggle');
 
 if (localStorage.getItem('mode') === 'light') {
@@ -8,6 +8,21 @@ if (localStorage.getItem('mode') === 'light') {
 toggle?.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   localStorage.setItem('mode', document.body.classList.contains('dark') ? 'dark' : 'light');
+});
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // rAF ensures initial opacity:0 is painted before transition starts
+      requestAnimationFrame(() => entry.target.classList.add('revealed'));
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 });
 
 // Typewriter
@@ -70,26 +85,31 @@ async function loadProjects() {
       return;
     }
 
-    grid.innerHTML = repos.map(renderCard).join('');
+    grid.innerHTML = repos.map((repo, i) => renderCard(repo, i + 1)).join('');
+    // Observe dynamically-added cards with staggered delay
+    grid.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.07}s`;
+      revealObserver.observe(el);
+    });
   } catch (err) {
     grid.innerHTML = '<div class="project-card skeleton">Could not load projects right now.</div>';
   }
 }
 
-function renderCard(repo) {
-  const topics = (repo.topics || []).slice(0, 4)
-    .map(t => `<span class="badge">${escape(t)}</span>`).join('');
-  const lang = repo.language ? `<span class="badge">${escape(repo.language)}</span>` : '';
+function renderCard(repo, num) {
+  const numStr = String(num).padStart(2, '0');
+  const lang = repo.language ? escape(repo.language) : null;
   const fork = repo.forked ? '<span class="fork-tag">fork</span>' : '';
+  const langLink = `<a href="${repo.url}" target="_blank" rel="noopener" class="project-lang">${lang ? lang + ' ↗' : 'GitHub ↗'}</a>`;
 
   return `
-    <article class="project-card">
-      <div class="project-name">${escape(repo.name)} ${fork}</div>
-      <p class="project-desc">${escape(repo.description) || 'No description.'}</p>
-      <div class="project-meta">${lang}${topics}</div>
-      <div class="project-foot">
-        <a href="${repo.url}" target="_blank" rel="noopener">View on GitHub →</a>
+    <article class="project-card reveal">
+      <div class="project-row">
+        <span class="project-num">${numStr}</span>
+        <span class="project-name">${escape(repo.name)} ${fork}</span>
+        ${langLink}
       </div>
+      ${repo.description ? `<p class="project-desc">${escape(repo.description)}</p>` : ''}
     </article>
   `;
 }
