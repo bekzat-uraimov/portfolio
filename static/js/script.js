@@ -25,6 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 });
 
+// Active nav link — highlight the section currently in view
+const navLinks = document.querySelectorAll('.nav-link');
+const navTargets = ['about', 'projects', 'contact'];
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    }
+  });
+}, { rootMargin: '-45% 0px -45% 0px' });
+
+document.addEventListener('DOMContentLoaded', () => {
+  navTargets.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) navObserver.observe(el);
+  });
+});
+
 // Typewriter
 const phrases = [
   'CS undergrad, Seattle area.',

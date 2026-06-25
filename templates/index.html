@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bekzat Uraimov — CS undergrad, Seattle area. Won Best Use of AI at Seattle Code Day. Python, FastAPI, GitHub Actions. Open to internships and full-time roles." />
+  <meta name="description" content="Bekzat Uraimov — CS undergrad in the Seattle area building AI-powered developer tools. Python, FastAPI, GitHub Actions. Open to SWE/ML internships and full-time roles." />
   <title>Bekzat Uraimov</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +15,14 @@
   <nav>
     <a href="#top" class="logo">bekzat<span>.</span></a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li>
+        <span class="nav-open-pill">
+          <span class="nav-pill-dot"></span>OPEN TO WORK
+        </span>
+      </li>
       <li>
         <button id="mode-toggle" class="mode-toggle" aria-label="Toggle dark mode">
           <span class="mode-icon"></span>
@@ -29,7 +34,6 @@
   <main id="top">
 
     <section id="hero">
-      <div class="available-pill">open to work</div>
       <p class="eyebrow">Hi, I'm</p>
       <h1>Bekzat Uraimov</h1>
       <p class="hero-sub">
@@ -37,20 +41,67 @@
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">See my work</a>
-        <a href="https://github.com/{{ github_user }}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub →</a>
+        <a href="https://github.com/{{ github_user }}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      <hr class="hero-divider">
+      <div class="hero-info">
+        <div class="info-item">
+          <span class="info-label">Location</span>
+          <span class="info-value">Seattle, WA</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Focus</span>
+          <span class="info-value">AI & dev tools</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Graduating</span>
+          <span class="info-value">Summer 2026</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Status</span>
+          <span class="info-value status-open">Open to work</span>
+        </div>
       </div>
     </section>
 
     <section id="about">
-      <p class="section-tag">About</p>
-      <h2>CS undergrad.<br><em>I build things.</em></h2>
-      <p class="about-body">
-        Won Best Use of AI at Seattle Code Day. Won our track at QuackHacks at Oregon State.
-        I find problems that bother me and write code until they don't. Most of it ends up as
-        CLIs, GitHub Actions, or browser extensions. Based in the Seattle area, graduating
-        summer 2026. Open to internships and full or part-time roles. No visa sponsorship required.
+      <p class="section-tag">01 / About</p>
+      <h2 class="reveal">CS undergrad.<br><em>I build things.</em></h2>
+      <p class="about-body reveal">
+        I build developer tools that take the friction out of everyday work — usually with a bit
+        of AI behind them. Lately that's a GitHub Action that reviews PRs with Claude, a CLI that
+        explains shell errors in plain English, and a few browser extensions. I find problems that
+        bother me and write code until they don't. CS undergrad in the Seattle area, graduating
+        summer 2026.
       </p>
-      <ul class="stack-list">
+      <div class="awards-grid">
+        <div class="award-item reveal" data-delay="1">
+          <span class="award-badge">WON</span>
+          <div>
+            <p class="award-title">Best Use of AI</p>
+            <p class="award-sub">Seattle Code Day</p>
+          </div>
+        </div>
+        <div class="award-item reveal" data-delay="2">
+          <span class="award-badge">WON</span>
+          <div>
+            <p class="award-title">Track winner</p>
+            <p class="award-sub">QuackHacks · Oregon State</p>
+          </div>
+        </div>
+        <div class="award-item reveal" data-delay="3">
+          <span class="award-badge">WON</span>
+          <div>
+            <p class="award-title">Most Active Participant</p>
+            <p class="award-sub">QuackHacks · 2026</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <p class="section-tag">02 / Stack</p>
+      <ul class="stack-list reveal">
         <li>Python</li>
         <li>Java</li>
         <li>JavaScript</li>
@@ -59,30 +110,31 @@
         <li>GitHub Actions</li>
         <li>Chrome Extensions</li>
         <li>LLM APIs</li>
+        <li>Distributed systems</li>
         <li>Machine learning</li>
       </ul>
     </section>
 
     <section id="projects">
-      <p class="section-tag">Projects</p>
-      <h2>Things I've built.</h2>
-      <p class="projects-note">↳ pulled live from GitHub</p>
+      <p class="section-tag">03 / Projects</p>
+      <h2 class="reveal">Things I've built.</h2>
+      <p class="projects-note reveal">↳ pulled live from GitHub</p>
       <div id="projects-grid" class="projects-grid">
         <div class="project-card skeleton">Loading projects…</div>
       </div>
     </section>
 
     <section id="contact">
-      <p class="section-tag">Contact</p>
-      <h2>Get in touch.</h2>
-      <p class="contact-body">
-        Open to internships and full or part-time roles. No visa sponsorship required.
-        If you have something interesting to work on, I want to hear about it.
+      <p class="section-tag">04 / Contact</p>
+      <h2 class="reveal">Get in touch.</h2>
+      <p class="contact-body reveal">
+        Open to internships and full or part-time roles. I have US work authorization, so no visa
+        sponsorship needed. If you've got something interesting to build, I want to hear about it.
       </p>
-      <div class="contact-actions">
+      <div class="contact-actions reveal">
         <button id="copy-email" class="btn btn-primary" data-email="bkzturaimov@gmail.com">
           <span class="copy-label">bkzturaimov@gmail.com</span>
-          <span class="copy-status"></span>
+          <span class="copy-status">copied</span>
         </button>
         <div class="socials">
           <a href="https://github.com/{{ github_user }}" target="_blank" rel="noopener" aria-label="GitHub">
@@ -101,7 +153,15 @@
   </main>
 
   <footer>
-    <p>Built with Flask · <a href="https://github.com/{{ github_user }}/portfolio" target="_blank" rel="noopener">source</a></p>
+    <div class="footer-row">
+      <span>© 2026 Bekzat Uraimov</span>
+      <span>Built with Flask · <a href="https://github.com/{{ github_user }}/portfolio" target="_blank" rel="noopener">Source ↗</a></span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/{{ github_user }}" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/bekzat-uraimov" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:bkzturaimov@gmail.com">Email ↗</a>
+    </div>
   </footer>
 
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>

@@ -100,6 +100,10 @@ nav a:hover {
   color: var(--fg);
 }
 
+.nav-link.active {
+  color: var(--accent);
+}
+
 .nav-open-pill {
   display: inline-flex;
   align-items: center;
@@ -602,6 +606,16 @@ footer a:hover {
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.45; transform: scale(0.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
 }
 
 /* ── MOBILE ──────────────────────────────────────── */
