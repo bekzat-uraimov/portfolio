@@ -43,7 +43,7 @@ python app.py
 
 ## Deploy (Vercel)
 
-The repo is already wired for Vercel: `vercel.json` rewrites all traffic to `api/index.py`, which imports the Flask app. No Procfile, no gunicorn.
+Vercel auto-detects the Flask `app` instance in `app.py` at the repo root (zero-config Flask support) and routes all requests to it directly. No `vercel.json`, no `api/` wrapper, no Procfile, no gunicorn.
 
 1. Push to GitHub.
 2. vercel.com → New Project → import the repo.
@@ -54,8 +54,6 @@ The repo is already wired for Vercel: `vercel.json` rewrites all traffic to `api
 
 ```
 .
-├── api/
-│   └── index.py       # Vercel entry — imports app:app
 ├── static/
 │   ├── css/style.css
 │   └── js/script.js
@@ -63,7 +61,6 @@ The repo is already wired for Vercel: `vercel.json` rewrites all traffic to `api
 │   └── index.html
 ├── app.py             # Flask routes + GitHub fetch
 ├── requirements.txt
-├── vercel.json
 └── README.md
 ```
 
