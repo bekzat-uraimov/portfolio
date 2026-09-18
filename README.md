@@ -1,16 +1,16 @@
 # portfolio
 
-My personal site. Flask backend, single-page frontend, projects pulled live from the GitHub API. Deployed on Vercel.
+My personal site. One page, no build step — Flask serves a single self-contained template.
 
 **Live:** https://bekzat.dev
 
-
 ## Stack
 
-- Flask 3 — routes and the cached GitHub proxy
-- Vanilla JS — typed hero, dark mode toggle, project loader
-- GitHub GraphQL API — real pinned repos when a token is set
-- Vercel — hosting (serverless, no cold-sleep)
+- Flask 3 — serves the page, the crawler files, and a branded 404
+- Vanilla JS — theme toggle, scroll reveal, project filter, count-up stats
+- Vercel — hosting, zero-config Flask detection
+
+The page carries its own CSS, JS, and hero image inline. No bundler, no CDN scripts, no runtime API calls.
 
 ## Run locally
 
@@ -19,47 +19,41 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Open http://localhost:5000.
+Open http://localhost:5050.
 
-## Configuration
+## Routes
 
-Two env vars control the Projects section. Both are optional but you want one of them — otherwise the section is empty.
-
-| Var | Purpose |
+| Route | Purpose |
 |---|---|
-| `GITHUB_USER` | Defaults to `bekzat-uraimov`. |
-| `GITHUB_TOKEN` | Fine-grained personal access token with read access to public repos. When set, the site shows your real pinned repos via GraphQL. |
-| `GITHUB_PINNED` | Comma-separated repo names, e.g. `HabitTrackerBot,Poly_Predictor_Kit`. Used when no token is set. |
+| `/` | The page. |
+| `/robots.txt`, `/sitemap.xml` | Served from `static/` at the root, where crawlers look. |
+| `/static/*` | `og.png`, `apple-touch-icon.png`. Cached 24h. |
+| anything else | Branded 404 (`templates/404.html`). |
 
-Selection order: `GITHUB_TOKEN` (real pinned) → `GITHUB_PINNED` (manual list) → empty.
-
-Local example:
-
-```
-export GITHUB_USER=your-handle
-export GITHUB_TOKEN=ghp_xxx
-python app.py
-```
+No environment variables. No external services.
 
 ## Deploy (Vercel)
 
-Vercel auto-detects the Flask `app` instance in `app.py` at the repo root (zero-config Flask support) and routes all requests to it directly. No `vercel.json`, no `api/` wrapper, no Procfile, no gunicorn.
+Vercel auto-detects the Flask `app` instance in `app.py` at the repo root and routes
+everything to it. No `vercel.json`, no `api/` wrapper, no Procfile, no gunicorn.
 
 1. Push to GitHub.
 2. vercel.com → New Project → import the repo.
-3. Add env vars: `GITHUB_USER`, `GITHUB_TOKEN`.
-4. Deploy. First build is ~30s.
+3. Deploy.
 
 ## Project structure
 
 ```
 .
 ├── static/
-│   ├── css/style.css
-│   └── js/script.js
+│   ├── og.png                 # 1200x630 social card
+│   ├── apple-touch-icon.png
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── templates/
-│   └── index.html
-├── app.py             # Flask routes + GitHub fetch
+│   ├── index.html             # the whole site
+│   └── 404.html
+├── app.py
 ├── requirements.txt
 └── README.md
 ```
