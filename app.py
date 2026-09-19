@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory
 
+import content
+
 app = Flask(__name__)
 
 # the page is fully self-contained, so the only thing that changes is the assets
@@ -8,7 +10,18 @@ app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 60 * 60 * 24
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+        profile=content.PROFILE,
+        hero_chips=content.HERO_CHIPS,
+        stack=content.STACK,
+        tabs=content.PROJECT_TABS,
+        projects=content.PROJECTS,
+        awards=content.AWARDS,
+        about=content.ABOUT,
+        timeline=content.TIMELINE,
+        contact_blurb=content.CONTACT_BLURB,
+    )
 
 
 @app.route("/robots.txt")
