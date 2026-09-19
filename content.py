@@ -68,18 +68,26 @@ PROJECTS = [
             "authenticated content access, payments, webhooks, and protected media."
         ),
         "technologies": [
-            "FastAPI", "PostgreSQL", "SQLModel", "Docker", "Cloudflare R2", "Kinescope",
+            "FastAPI", "PostgreSQL", "SQLModel", "Docker",
+            "Cloudflare R2", "Kinescope", "FreedomPay",
         ],
+        # Each bullet below was checked against the ONER repo, not paraphrased
+        # from memory. See app/services/entitlements.py, app/services/payments.py,
+        # app/api/drm.py and app/services/storage.py.
         "highlights": [
-            "Designed a backend API around authenticated users, courses, lessons, and ownership.",
-            "Implemented entitlement-based authorization so course ownership is the source of "
-            "truth for content access.",
-            "Integrated payment webhooks with idempotent entitlement grants to safely handle "
-            "repeated webhook events.",
-            "Built protected delivery for video and course materials using authenticated "
-            "backend access.",
+            "Modeled users, courses, modules, lessons, and materials around an entitlements "
+            "table that is the only record of who owns what.",
+            "Made server-side entitlements the single gate for content — access is never "
+            "decided by the client or by a payment redirect, only by a verified webhook.",
+            "Hardened the FreedomPay callback with signature, amount, and order checks, and "
+            "made the grant idempotent behind a unique constraint so retried webhooks never "
+            "double-grant.",
+            "Gated video behind Kinescope DRM by answering the playback-authorization callback "
+            "per play, and served course materials as expiring R2 presigned URLs.",
         ],
-        "github": None,  # TODO: add the ONER repo URL if it is public
+        # TODO: the repo is private for now. When you make it public, set this to
+        # "https://github.com/bekzat-uraimov/ONER" and a Source button appears.
+        "github": None,
         "demo": "https://oner-web-eta.vercel.app",
         "filter": "backend",
         "image": "/static/oner.webp",
