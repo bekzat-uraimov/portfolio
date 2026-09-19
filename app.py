@@ -1,6 +1,12 @@
+import mimetypes
+
 from flask import Flask, render_template, request, send_from_directory
 
 import content
+
+# some runtimes ship a mimetypes db without webp, which serves the hero
+# screenshot as application/octet-stream
+mimetypes.add_type("image/webp", ".webp")
 
 app = Flask(__name__)
 
