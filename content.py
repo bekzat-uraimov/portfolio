@@ -7,27 +7,24 @@ in PROJECTS; adding an award link means filling in that award's `href`.
 PROFILE = {
     "name": "Bekzat Uraimov",
     "headline": "Software Engineer",
-    "subhead": "Backend · AI · Developer Tools",
+    "subhead": "Backend and AI",
     "blurb": (
-        "CS student in Seattle building backend systems, developer tools, "
-        "and AI-powered applications."
+        "CS student in Seattle. I mostly work on backends in Python, and "
+        "lately on apps that use LLMs."
     ),
-    "status": "Open to software engineering internships and full-time roles",
+    "status": "Open to software engineering internships and entry level roles",
     "location": "Seattle, WA",
     "email": "bkzturaimov@gmail.com",
     "github": "https://github.com/bekzat-uraimov",
-    "linkedin": "https://www.linkedin.com/in/bekzat-uraimov",
+    "linkedin": "https://www.linkedin.com/in/bekzat-uraimov/",
     "leetcode": "https://leetcode.com/u/bekzat-uraimov",
-    # TODO: drop the PDF into static/ and set this to "/static/resume.pdf".
-    # While it is None the Resume link is hidden everywhere instead of
-    # rendering a dead link.
+    # keep resume as None until you drop a PDF in static/
     "resume": None,
 }
 
 # Shown as chips under the hero headline.
 HERO_CHIPS = [
-    "Python · Java · JavaScript",
-    "FastAPI · PostgreSQL · Docker",
+    "Seattle, WA | Python, Java, C++ | FastAPI, PostgreSQL, Docker",
 ]
 
 # The scrolling strip under the hero.
@@ -36,28 +33,17 @@ STACK = [
     "FastAPI", "Flask", "PostgreSQL",
     "SQLModel", "Docker", "Git",
     "GitHub Actions", "REST APIs", "LLM APIs",
+    "LangGraph", "LiteLLM", "C++",
 ]
 
 # Filter pills above the project grid. The key matches a project's `filter`.
 PROJECT_TABS = [
     ("all", "All"),
     ("backend", "Backend"),
-    ("ai", "AI and dev tools"),
-    ("data", "Data"),
+    ("ai", "AI"),
 ]
 
-# Each project renders one card. Keys:
-#   title, category, logo (2 letters), description (one sentence),
-#   technologies (list), highlights (3-4 bullets on what was engineered),
-#   github / demo (URL or None), filter (matches PROJECT_TABS),
-#   image (path under /static, or None to draw the generic mock),
-#   badge (small label over the thumbnail, or None),
-#   placeholder (True marks the card as not-yet-built; see the note below).
-#
-# PLACEHOLDER PROJECTS: CodeLens and Signal are stand-ins for real repos.
-# They render a "PLACEHOLDER" badge so the live site never claims work that
-# does not exist. Replace the whole dict with a real project and set
-# placeholder=False — nothing else needs to change.
+# Projects shown on the site. Do not load from GitHub API.
 PROJECTS = [
     {
         "title": "ONER",
@@ -71,22 +57,13 @@ PROJECTS = [
             "FastAPI", "PostgreSQL", "SQLModel", "Docker",
             "Cloudflare R2", "Kinescope", "FreedomPay",
         ],
-        # Each bullet below was checked against the ONER repo, not paraphrased
-        # from memory. See app/services/entitlements.py, app/services/payments.py,
-        # app/api/drm.py and app/services/storage.py.
+        # Exact text kept from the repo; only the dash after "content" was replaced with a period.
         "highlights": [
-            "Modeled users, courses, modules, lessons, and materials around an entitlements "
-            "table that is the only record of who owns what.",
-            "Made server-side entitlements the single gate for content — access is never "
-            "decided by the client or by a payment redirect, only by a verified webhook.",
-            "Hardened the FreedomPay callback with signature, amount, and order checks, and "
-            "made the grant idempotent behind a unique constraint so retried webhooks never "
-            "double-grant.",
-            "Gated video behind Kinescope DRM by answering the playback-authorization callback "
-            "per play, and served course materials as expiring R2 presigned URLs.",
+            "Modeled users, courses, modules, lessons, and materials around an entitlements table that is the only record of who owns what.",
+            "Made server-side entitlements the single gate for content. Access is never decided by the client or by a payment redirect, only by a verified webhook.",
+            "Hardened the FreedomPay callback with signature, amount, and order checks, and made the grant idempotent behind a unique constraint so retried webhooks never double-grant.",
+            "Gated video behind Kinescope DRM by answering the playback-authorization callback per play, and served course materials as expiring R2 presigned URLs.",
         ],
-        # TODO: the repo is private for now. When you make it public, set this to
-        # "https://github.com/bekzat-uraimov/ONER" and a Source button appears.
         "github": None,
         "demo": "https://oner-web-eta.vercel.app",
         "filter": "backend",
@@ -96,110 +73,75 @@ PROJECTS = [
         "placeholder": False,
     },
     {
-        "title": "CodeLens",
-        "category": "AI Developer Tool",
-        "logo": "CL",
+        "title": "ThinkCoder",
+        "category": "AI coding assistant",
+        "logo": "TC",
         "description": (
-            "Developer tool that uses AI to analyze code and surface useful feedback "
-            "directly in the development workflow."
+            "An AI coding assistant made by a small team at akyldoo.ai. My part was the "
+            "Python layer that decides how each problem is worked through."
         ),
-        "technologies": ["Python", "LLM APIs", "GitHub Actions", "FastAPI"],
+        "technologies": ["Python", "LangGraph", "LiteLLM", "Ollama", "Gemini"],
         "highlights": [
-            "Integrated an LLM API into an automated developer workflow.",
-            "Designed a backend/API layer for processing source code and returning "
-            "structured analysis.",
-            "Connected automated analysis to a developer workflow rather than requiring a "
-            "separate standalone interface.",
-            "Focused the tool on actionable developer feedback instead of generic "
-            "AI-generated text.",
+            "Each problem runs as its own LangGraph session with its own state, instead of one long prompt.",
+            "Requests go through LiteLLM: simple ones to a local Qwen2.5-Coder-7B model on Ollama, harder ones to Gemini, to keep the cost low.",
+            "Worked on keeping long sessions inside the model context window.",
         ],
         "github": None,
         "demo": None,
         "filter": "ai",
         "image": None,
-        "badge": "PLACEHOLDER",
-        "placeholder": True,
+        "badge": "TEAM PROJECT",
+        "placeholder": False,
     },
     {
-        "title": "Signal",
-        "category": "Data Analysis Platform",
-        "logo": "SG",
+        "title": "Tokenizer for Central Asian languages",
+        "category": "C++ and Python",
+        "logo": "TK",
         "description": (
-            "Data-focused application for processing, analyzing, and presenting "
-            "structured datasets through a useful software interface."
+            "Kyrgyz, Kazakh and Uzbek usually take more tokens than English in AI models, "
+            "so the same sentence costs more and fits less. I want to measure how big that gap is first, "
+            "and then try to build a better tokenizer in C++. Just starting, nothing to show yet."
         ),
-        "technologies": ["Python", "Pandas", "PostgreSQL", "JavaScript"],
-        "highlights": [
-            "Built a Python-based data processing pipeline.",
-            "Designed structured storage for analyzed data.",
-            "Used data transformation and analysis to produce useful outputs rather than "
-            "raw datasets.",
-            "Presented results through a simple application interface.",
-        ],
+        "technologies": ["C++", "Python"],
+        "highlights": [],
         "github": None,
         "demo": None,
-        "filter": "data",
+        "filter": "ai",
         "image": None,
-        "badge": "PLACEHOLDER",
-        "placeholder": True,
+        "badge": "NOW BUILDING",
+        "placeholder": False,
     },
 ]
 
-# `href` stays None until the write-up or proof exists; the card renders as
-# plain text now and as a link the moment a URL is filled in.
+# Awards shown on the site
 AWARDS = [
     {
-        "event": "Seattle Code Day",
-        "award": "Best Use of AI — Winner",
-        "note": "AI Novella Generator",
-        "href": None,
+        "event": "QuackHacks, University of Oregon",
+        "award": "Polymarket Track, winner",
+        "note": "Poly Predictor Kit, team of six",
+        "href": "https://github.com/bekzat-uraimov/Poly_Predictor_Kit",
     },
     {
-        "event": "QuackHacks",
-        "award": "Track Winner",
-        "note": "Oregon State University",
-        "href": None,
+        "event": "Seattle Code Day",
+        "award": "Best Use of AI, winner",
+        "note": "AI Visual Novel Creator, team project",
+        "href": "https://github.com/bekzat-uraimov/AI_Visual_Novel_Creator",
     },
 ]
 
 ABOUT = [
-    "I'm a CS student in Seattle who enjoys building software that solves real problems. "
-    "My main interests are backend engineering, developer tools, and AI-powered applications.",
-    "I learn by building — from APIs and database-backed systems to developer tools and "
-    "applications that integrate AI.",
+    "I am a computer science student at Bellevue College, in Seattle. I like backend work the most: APIs, databases, and the parts that have to be right, like payments.",
+    "Right now most of my time goes to ONER and to my classes, Data Structures in C++ and Python for Data Science. I am looking for an internship or entry level role where I can learn from people with more experience than me.",
 ]
 
 TIMELINE = [
-    {
-        "when": "NOW",
-        "title": "Startup Intern · akyldoo.ai",
-        "detail": "Python orchestration layer for ThinkCoder, since 2025",
-    },
-    {
-        "when": "NOW",
-        "title": "Software Engineer · ONER",
-        "detail": "Video craft platform for Central Asia, since 2024",
-    },
-    {
-        "when": "IN PROGRESS",
-        # TODO: the site said Bellevue College, the profile notes say Cascadia.
-        # Confirm which is correct.
-        "title": "Bellevue College",
-        "detail": "BS in Computer Science, coursework in machine learning and data science",
-    },
-    {
-        "when": "DONE",
-        "title": "Associate degree",
-        "detail": "Finished before transferring in",
-    },
-    {
-        "when": "2019 → 2023",
-        "title": "Colorist and Editor",
-        "detail": "Freelance commercial video",
-    },
+    {"when": "NOW", "title": "Founding Engineer, ONER", "detail": "Course platform backend, since May 2026"},
+    {"when": "NOW", "title": "Software Engineer, akyldoo.ai", "detail": "ThinkCoder orchestration layer, since March 2026"},
+    {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, expected 2028"},
+    {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA)"},
+    {"when": "2019 to 2023", "title": "Colorist and video editor", "detail": "Commercial video, before I started programming"},
 ]
 
 CONTACT_BLURB = (
-    "I'm looking for software engineering opportunities where I can build useful "
-    "software, learn from experienced engineers, and contribute to real systems."
+    "I am looking for a software engineering internship or entry level role. Email is the easiest way to reach me."
 )

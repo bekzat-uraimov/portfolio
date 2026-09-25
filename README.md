@@ -1,14 +1,14 @@
 # portfolio
 
-My personal site. One page, no build step — Flask serves a single self-contained template.
+My personal site. One page, no build step. Flask serves a single self-contained template.
 
 **Live:** https://bekzat.dev
 
 ## Stack
 
-- Flask 3 — serves the page, the crawler files, and a branded 404
-- Vanilla JS — theme toggle, scroll reveal, project filter, count-up stats
-- Vercel — hosting, zero-config Flask detection
+- Flask 3. Serves the page, the crawler files, and a branded 404
+- Vanilla JS. Theme toggle, scroll reveal, project filter, count-up stats
+- Vercel. Hosting, zero-config Flask detection
 
 The page carries its own CSS, JS, and hero image inline. No bundler, no CDN scripts, no runtime API calls.
 
