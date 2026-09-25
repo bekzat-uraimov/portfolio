@@ -9,8 +9,8 @@ PROFILE = {
     "headline": "Software Engineer",
     "subhead": "Backend and AI",
     "blurb": (
-        "CS student in Seattle. I mostly work on backends in Python, and "
-        "lately on apps that use LLMs."
+        "CS student in Seattle building backend systems, developer tools, "
+        "and AI-powered applications."
     ),
     "status": "Open to software engineering internships and entry level roles",
     "location": "Seattle, WA",
