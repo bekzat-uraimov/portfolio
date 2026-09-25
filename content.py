@@ -24,7 +24,9 @@ PROFILE = {
 
 # Shown as chips under the hero headline.
 HERO_CHIPS = [
-    "Seattle, WA | Python, Java, C++ | FastAPI, PostgreSQL, Docker",
+    "Seattle, WA",
+    "Python, Java, C++",
+    "FastAPI, PostgreSQL, Docker",
 ]
 
 # The scrolling strip under the hero.
@@ -64,7 +66,7 @@ PROJECTS = [
             "Hardened the FreedomPay callback with signature, amount, and order checks, and made the grant idempotent behind a unique constraint so retried webhooks never double-grant.",
             "Gated video behind Kinescope DRM by answering the playback-authorization callback per play, and served course materials as expiring R2 presigned URLs.",
         ],
-        "github": None,
+        "github": "https://github.com/bekzat-uraimov/oner-platform",
         "demo": "https://oner-web-eta.vercel.app",
         "filter": "backend",
         "image": "/static/oner.webp",
@@ -124,7 +126,7 @@ AWARDS = [
         "href": "https://github.com/bekzat-uraimov/Poly_Predictor_Kit",
     },
     {
-        "event": "Seattle Code Day",
+        "event": "CodeDay Fall 2025, Seattle",
         "award": "Best Use of AI, winner",
         "note": "AI Visual Novel Creator, team project",
         "href": "https://github.com/bekzat-uraimov/AI_Visual_Novel_Creator",
