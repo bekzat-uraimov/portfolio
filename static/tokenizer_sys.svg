@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800">
+  <style>
+    .bg{fill:#060606}
+    .box{fill:#0f1720;stroke:#1f2937;stroke-width:2}
+    .bar{fill:#fb923c}
+    .line{stroke:#f97316;stroke-width:4;stroke-linecap:round;fill:none;marker-end:url(#arr)}
+    .text-main{fill:#f8fafc;font-family:Inter,system-ui,Arial;font-weight:700}
+    .text-sub{fill:#cbd5e1;font-family:Inter,system-ui,Arial;font-weight:600}
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#f97316"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" class="bg" rx="16"/>
+
+  <text x="64" y="90" font-size="40" class="text-main">Tokenizer for Central Asian languages</text>
+  <text x="64" y="130" font-size="16" class="text-sub">Measuring token gap. C++ tokenizer prototype.</text>
+
+  <!-- input -->
+  <rect x="64" y="180" width="420" height="100" rx="10" class="box"/>
+  <text x="84" y="225" font-size="18" class="text-main">Text input</text>
+  <text x="84" y="250" font-size="13" class="text-sub">Kyrgyz, Kazakh, Uzbek, English</text>
+
+  <!-- arrow to tokenizer -->
+  <path class="line" d="M484 230 L640 230" />
+
+  <!-- tokenizer box -->
+  <rect x="640" y="180" width="320" height="120" rx="12" class="box"/>
+  <text x="660" y="225" font-size="18" class="text-main">Tokenizer (C++)</text>
+  <text x="660" y="250" font-size="13" class="text-sub">Tokenization algorithm, performance in C++</text>
+
+  <!-- token bars (visual compare) -->
+  <g transform="translate(100,340)">
+    <rect x="0" y="0" width="1100" height="26" rx="8" fill="#0b1220"/>
+    <rect class="bar" x="20" y="-10" width="1040" height="26" rx="8"/>
+
+    <text x="20" y="70" class="text-sub" font-size="14">English (baseline)</text>
+    <rect x="240" y="80" width="720" height="18" rx="8" fill="#fb923c" opacity="0.95"/>
+
+    <text x="20" y="140" class="text-sub" font-size="14">Kyrgyz</text>
+    <rect x="240" y="150" width="880" height="18" rx="8" fill="#fb923c" opacity="0.95"/>
+
+    <text x="20" y="210" class="text-sub" font-size="14">Kazakh</text>
+    <rect x="240" y="220" width="920" height="18" rx="8" fill="#fb923c" opacity="0.95"/>
+
+    <text x="20" y="280" class="text-sub" font-size="14">Uzbek</text>
+    <rect x="240" y="290" width="880" height="18" rx="8" fill="#fb923c" opacity="0.95"/>
+  </g>
+
+  <!-- footer note -->
+  <text x="64" y="760" font-size="12" fill="#72839b">Bekzat Uraimov · C++, Python · Tokenization research</text>
+</svg>
