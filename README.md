@@ -2,6 +2,8 @@
 
 My personal site. One page, no build step. Flask serves a single self-contained template.
 
+This public repo starts from a snapshot. Development history is private.
+
 **Live:** https://bekzat.dev
 
 ## Stack
