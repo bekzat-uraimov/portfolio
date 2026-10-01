@@ -18,8 +18,7 @@ PROFILE = {
     "github": "https://github.com/bekzat-uraimov",
     "linkedin": "https://www.linkedin.com/in/bekzat-uraimov/",
     "leetcode": "https://leetcode.com/u/bekzat-uraimov",
-    # keep resume as None until you drop a PDF in static/
-    "resume": None,
+    "resume": "/static/Bekzat_Uraimov_Resume.pdf",
 }
 
 # Shown as chips under the hero headline.
@@ -59,12 +58,11 @@ PROJECTS = [
             "FastAPI", "PostgreSQL", "SQLModel", "Docker",
             "Cloudflare R2", "Kinescope", "FreedomPay",
         ],
-        # Exact text kept from the repo; only the dash after "content" was replaced with a period.
         "highlights": [
-            "Modeled users, courses, modules, lessons, and materials around an entitlements table that is the only record of who owns what.",
-            "Made server-side entitlements the single gate for content. Access is never decided by the client or by a payment redirect, only by a verified webhook.",
-            "Hardened the FreedomPay callback with signature, amount, and order checks, and made the grant idempotent behind a unique constraint so retried webhooks never double-grant.",
-            "Gated video behind Kinescope DRM by answering the playback-authorization callback per play, and served course materials as expiring R2 presigned URLs.",
+            "Made a verified payment webhook the only way to unlock content. Access is never decided by the client or by a payment redirect, only by server-side entitlements.",
+            "Made each payment grant access exactly once. The FreedomPay callback checks signature, amount and order, and a unique constraint stops retried webhooks from granting twice.",
+            "Protected video so only owners can play it: Kinescope DRM asks the server on every play, and course materials are expiring R2 presigned URLs.",
+            "Built the data model (users, courses, modules, lessons, materials) around one entitlements table, the only record of who owns what.",
         ],
         "github": "https://github.com/bekzat-uraimov/oner-platform",
         "demo": "https://oner-web-eta.vercel.app",
@@ -84,8 +82,8 @@ PROJECTS = [
         ),
         "technologies": ["Python", "LangGraph", "LiteLLM", "Ollama", "Gemini"],
         "highlights": [
+            "Kept the cost low with LiteLLM routing: simple requests go to a local Qwen2.5-Coder-7B model on Ollama, harder ones to Gemini.",
             "Each problem runs as its own LangGraph session with its own state, instead of one long prompt.",
-            "Requests go through LiteLLM: simple ones to a local Qwen2.5-Coder-7B model on Ollama, harder ones to Gemini, to keep the cost low.",
             "Worked on keeping long sessions inside the model context window.",
         ],
         "github": None,
@@ -139,8 +137,8 @@ ABOUT = [
 ]
 
 TIMELINE = [
-    {"when": "NOW", "title": "Founding Engineer, ONER", "detail": "Course platform backend, since May 2026"},
-    {"when": "NOW", "title": "Software Engineer, akyldoo.ai", "detail": "ThinkCoder orchestration layer, since March 2026"},
+    {"when": "NOW", "title": "ONER, Software Engineer", "detail": "Course platform backend, since May 2026"},
+    {"when": "NOW", "title": "akyldoo.ai, Software Engineer", "detail": "ThinkCoder orchestration layer, since March 2026"},
     {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, expected 2028"},
     {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA)"},
     {"when": "2019 to 2023", "title": "Colorist and video editor", "detail": "Commercial video, before I started programming"},
