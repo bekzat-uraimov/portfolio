@@ -17,7 +17,7 @@ PROFILE = {
     "email": "bkzturaimov@gmail.com",
     "github": "https://github.com/bekzat-uraimov",
     "linkedin": "https://www.linkedin.com/in/bekzat-uraimov/",
-    "leetcode": "https://leetcode.com/u/bekzat-uraimov",
+    "leetcode": "https://leetcode.com/u/bekzat_uraimov/",
     "resume": "/static/Bekzat_Uraimov_Resume.pdf",
 }
 
