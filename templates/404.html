@@ -3,53 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-(function(){
-  var t = 'light';
-  try {
-    t = localStorage.getItem('theme')
-        || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  } catch (e) {}
-  document.documentElement.setAttribute('data-theme', t);
-})();
-</script>
+<meta name="color-scheme" content="dark">
 <title>Not found · Bekzat Uraimov</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23090909%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%227%22%20fill%3D%22%23ff4d2e%22%2F%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23090D14%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%228%22%20width%3D%2222%22%20height%3D%2216%22%20rx%3D%225%22%20fill%3D%22%23202838%22%20stroke%3D%22%236CA7FF%22%20stroke-width%3D%222.4%22%2F%3E%3Cpath%20d%3D%22M10%2013.5l2.6%202.5L10%2018.5M15%2018.5h5%22%20stroke%3D%22%23EEF1EA%22%20stroke-width%3D%221.8%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{ --bg:#ffffff; --ink:#121212; --muted:#8a8a93; --accent:#ff4d2e; --border:#eaeaea; }
-[data-theme="dark"]{ --bg:#090909; --ink:#f5f5f6; --muted:#79797f; --border:#232326; }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:#000}
 body{
-  background:var(--bg); color:var(--ink);
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  min-height:100vh; display:grid; place-items:center; padding:24px;
-  -webkit-font-smoothing:antialiased;
+  min-height:100vh;display:grid;place-items:center;padding:24px;
+  background:#000 url('/static/cta-bg.jpg') center/cover no-repeat;color:#EEF1EA;
+  font-family:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;
 }
-.card{max-width:460px;text-align:center}
+body::before{
+  content:'';position:fixed;inset:10px;border-radius:34px;pointer-events:none;
+  border:3px solid #7DA9FF;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 0 26px rgba(108,167,255,.45),0 0 0 100vmax #000;
+}
+.card{max-width:480px;text-align:center}
 .code{
-  font-family:'JetBrains Mono',ui-monospace,monospace;
-  font-size:13px; letter-spacing:.14em; color:var(--accent);
-  display:flex; align-items:center; justify-content:center; gap:9px; margin-bottom:22px;
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;
+  font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#FF6A47;
+  padding:6px 12px;border-radius:8px;background:rgba(8,10,14,.6);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);
 }
-.dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
-h1{font-size:clamp(28px,6vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.15}
-p{color:var(--muted);margin-top:14px;line-height:1.6}
+.code::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+h1{font-size:clamp(34px,7vw,56px);font-weight:500;letter-spacing:-.035em;line-height:1.04}
+p{color:rgba(238,241,234,.8);margin-top:16px;line-height:1.6;font-size:17px}
 a.home{
-  display:inline-block;margin-top:30px;padding:11px 22px;
-  border:1px solid var(--border);border-radius:999px;
-  color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;
-  transition:border-color .2s ease, transform .2s ease;
+  display:inline-block;margin-top:30px;padding:12px 26px;border-radius:16px;
+  background:#6CA7FF;color:#090D14;font-weight:500;text-decoration:none;
+  box-shadow:inset 0 0 0 1px #A7CAFF,0 6px 24px -8px rgba(108,167,255,.6);
+  transition:transform .25s cubic-bezier(.22,1,.36,1),filter .2s;
 }
-a.home:hover{border-color:var(--accent);transform:translateY(-1px)}
+a.home:hover{transform:translateY(-1px);filter:brightness(1.08)}
 </style>
 </head>
 <body>
   <main class="card">
-    <div class="code"><span class="dot"></span>ERROR 404</div>
+    <div class="code">ERROR 404</div>
     <h1>This page doesn't exist.</h1>
     <p>The link is wrong or the page moved. Everything lives on one page anyway.</p>
     <a class="home" href="/">← Back to bekzat.dev</a>
