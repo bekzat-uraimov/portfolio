@@ -211,75 +211,54 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
   border-radius:14px;padding:0 10px 10px;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 40px 120px -20px rgba(0,0,0,.75),0 0 0 1px rgba(0,0,0,.6);
 }
-.win-bar{display:flex;align-items:center;gap:8px;height:38px;padding:0 6px}
-.win-bar i{width:12px;height:12px;border-radius:50%;display:block}
-.win-bar i:nth-child(1){background:#FF5F57}.win-bar i:nth-child(2){background:#FEBC2E}.win-bar i:nth-child(3){background:#28C840}
-.win-tools{display:grid;grid-template-columns:auto 1fr auto;gap:8px;margin-bottom:10px}
+.win-bar{display:grid;grid-template-columns:80px 1fr 80px;align-items:center;gap:10px;height:46px;padding:0 4px}
+.lights{display:flex;gap:8px}
+.lights i{width:12px;height:12px;border-radius:50%;display:block}
+.lights i:nth-child(1){background:#FF5F57}.lights i:nth-child(2){background:#FEBC2E}.lights i:nth-child(3){background:#28C840}
+.lights.ghost{visibility:hidden}
 .pill{
-  display:flex;align-items:center;gap:8px;height:32px;padding:0 12px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;gap:8px;height:30px;padding:0 12px;border-radius:9px;
   background:#121418;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
-  font-size:13px;color:var(--ink-2);white-space:nowrap;overflow:hidden;
+  font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;
 }
-.pill svg{width:14px;height:14px;opacity:.6;flex-shrink:0}
+.pill svg{width:13px;height:13px;opacity:.6;flex-shrink:0}
 .pill b{font-weight:500;color:var(--ink)}
-.pill #slug{margin-left:-8px;color:var(--ink)}
-.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);margin-left:6px}
-.win-main{display:grid;grid-template-columns:1fr 250px;gap:10px}
+.url{max-width:440px;width:100%;margin:0 auto;gap:0}
+.url svg{margin-right:8px}
+.win-main{display:grid;grid-template-columns:1fr 280px;gap:10px}
 .stage{
   position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#05070B;
   box-shadow:0 0 0 2px #7DA9FF,0 0 22px rgba(108,167,255,.3);
 }
 .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.02);transition:opacity .7s var(--ease-soft),transform 1.2s var(--ease)}
 .stage img.on{opacity:1;transform:none}
-.side{display:flex;flex-direction:column;gap:10px}
-.panel{background:#0D0F13;border-radius:10px;padding:14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
-.panel-h{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
-.panel-h em{font-style:normal;letter-spacing:.02em;text-transform:none;color:var(--red);display:flex;align-items:center;gap:6px}
-.panel-h em::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 1.4s steps(2,start) infinite}
-@keyframes blink{to{visibility:hidden}}
-.proj-info{display:none}
-.proj-info.on{display:block;animation:fadeup .5s var(--ease)}
+.side{background:#0D0F13;border-radius:10px;padding:20px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);display:flex}
+.panel-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
+.proj-info{display:none;flex-direction:column;width:100%}
+.proj-info.on{display:flex;animation:fadeup .5s var(--ease)}
 @keyframes fadeup{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.proj-info h4{font-size:19px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
-.proj-info .role{font-size:13px;color:var(--muted);margin-top:4px}
-.proj-info .badge-s{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:4px 8px;border-radius:6px;background:rgba(108,167,255,.14);color:var(--blue)}
-.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.seg span{
-  font-size:11.5px;text-align:center;padding:6px 4px;border-radius:7px;
-  background:#1A1D23;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);color:var(--ink-2);
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-}
-.seg span:first-child{background:var(--blue-ink);color:#fff;box-shadow:inset 0 0 0 1px rgba(167,202,255,.6)}
-.ctrls{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.ctrls button{height:34px;border-radius:8px;background:#1A1D23;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);display:grid;place-items:center;color:var(--ink-2);transition:background .2s}
-.ctrls button:hover{background:#252932}
-.ctrls button svg{width:14px;height:14px}
-.ctrls .rec{background:#E5533D;color:#fff;box-shadow:none}
-.ctrls .rec:hover{background:#F0624B}
+.proj-info h4{font-size:24px;font-weight:500;letter-spacing:-.03em;line-height:1.15}
+.proj-info .role{font-size:14px;color:var(--muted);margin-top:4px}
+.proj-info .badge-s{align-self:flex-start;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:4px 8px;border-radius:6px;background:rgba(108,167,255,.14);color:var(--blue)}
+.stack{display:flex;flex-wrap:wrap;gap:6px}
+.stack span{font-size:12.5px;padding:5px 10px;border-radius:7px;background:#1A1D23;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);color:var(--ink-2)}
+.side-actions{display:flex;gap:8px;margin-top:auto;padding-top:22px}
+.side-actions .btn{padding:8px 16px;font-size:13.5px;border-radius:12px}
+.side-actions .btn svg{width:14px;height:14px}
 
-/* timeline strip, straight out of Viewport's editor */
-.tline{margin-top:10px;display:grid;grid-template-columns:200px 1fr;background:#0D0F13;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);overflow:hidden}
-.t-list{padding:12px 10px;border-right:1px solid rgba(255,255,255,.05)}
-.t-list .panel-h{padding:0 6px;margin-bottom:8px}
-.t-row{
-  width:100%;display:flex;align-items:center;gap:9px;height:30px;padding:0 8px;border-radius:7px;
-  font-size:13px;color:var(--ink-2);text-align:left;transition:background .2s,color .2s;
+/* project switcher: tabs with a progress line, like story bars */
+.p-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:10px;margin-top:10px}
+.p-tab{
+  display:flex;flex-direction:column;gap:12px;padding:14px 16px 16px;border-radius:10px;text-align:left;
+  background:#0D0F13;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);color:var(--muted);
+  transition:background .25s var(--ease-soft),color .25s var(--ease-soft),box-shadow .25s var(--ease-soft);
 }
-.t-row i{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.t-row:hover{background:#171A20}
-.t-row.on{background:#1E222A;color:var(--ink)}
-.t-track{position:relative;padding:12px 14px 12px}
-.ruler{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--muted);height:20px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,.05)}
-.lanes{position:relative}
-.lane{height:30px;position:relative}
-.clip{
-  position:absolute;top:4px;height:22px;border-radius:6px;font-size:11.5px;font-weight:500;
-  display:flex;align-items:center;gap:6px;padding:0 9px;color:#0B0E14;white-space:nowrap;overflow:hidden;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);
-}
-.grid-lines{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px calc(100%/12));pointer-events:none}
-.playhead{position:absolute;top:-28px;bottom:-4px;width:2px;background:var(--blue);left:0;pointer-events:none}
-.playhead::before{content:'';position:absolute;top:0;left:-6px;width:14px;height:12px;border-radius:4px;background:var(--blue)}
+.p-tab:hover{color:var(--ink);background:#14171D}
+.p-tab.on{color:var(--ink);background:#171B22;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.p-name{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:500}
+.p-name i{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.bar{display:block;height:3px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar b{display:block;height:100%;width:0;border-radius:2px}
 
 /* stack strip: tiles, like the logo row */
 .tiles{
@@ -327,6 +306,7 @@ section{padding:120px 0}
 .card:not(.wide) .shot{margin-top:auto}
 .card.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.18fr;gap:44px;align-items:center}
 .card.hide{display:none}
+.card{scroll-margin-top:110px}
 .card-text{display:flex;flex-direction:column;gap:14px}
 .card-top{display:flex;align-items:center;gap:12px}
 .card-logo{
@@ -468,13 +448,11 @@ footer{padding:34px 0 calc(var(--frame) + 34px)}
   .nav .btn{margin-left:auto}
   .hero{padding:140px 0 24px}
   .window{margin-top:52px;padding:0 6px 6px}
-  .win-tools{grid-template-columns:1fr}
-  .win-tools .pill:first-child,.win-tools .pill:last-child{display:none}
-  .tline{grid-template-columns:1fr}
-  .t-list{border-right:0;display:flex;gap:4px;overflow-x:auto;padding:8px}
-  .t-list .panel-h{display:none}
-  .t-row{width:auto;flex-shrink:0}
-  .t-track{display:none}
+  .win-bar{grid-template-columns:1fr;height:40px}
+  .lights{display:none}
+  .p-tabs{gap:6px}
+  .p-tab{padding:10px 10px 12px;gap:9px}
+  .p-name{font-size:13px}
   section{padding:84px 0}
   .grid{grid-template-columns:1fr}
   .card{padding:22px}
@@ -557,15 +535,14 @@ footer{padding:34px 0 calc(var(--frame) + 34px)}
     </div>
   </div>
 
-  <!-- ============ HERO WINDOW: projects playing like a recording ============ -->
+  <!-- ============ HERO WINDOW: a simple project viewer ============ -->
   {% set dots = ['#5ED48A', '#7C9CF5', '#F5A524', '#B79CFF', '#FF6A47'] %}
   <div class="wrap">
     <div class="window rv" id="player" aria-label="Project preview">
-      <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="win-tools" aria-hidden="true">
-        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><b>bekzat-uraimov</b><span class="dot"></span></div>
-        <div class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>bekzat.dev/work/<span id="slug">{{ projects[0].title.split(' ')[0]|lower }}</span></div>
-        <div class="pill mono">16:10</div>
+      <div class="win-bar">
+        <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        <div class="pill url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>bekzat.dev/work/<b id="slug">{{ projects[0].title.split(' ')[0]|lower }}</b></div>
+        <span class="lights ghost" aria-hidden="true"><i></i><i></i><i></i></span>
       </div>
       <div class="win-main">
         <div class="stage">
@@ -574,53 +551,30 @@ footer{padding:34px 0 calc(var(--frame) + 34px)}
           {% endfor %}
         </div>
         <div class="side">
-          <div class="panel">
-            <div class="panel-h">Project <em>Live</em></div>
-            {% for p in projects %}
-            <div class="proj-info {{ 'on' if loop.first }}" data-i="{{ loop.index0 }}">
-              <h4>{{ p.title }}</h4>
-              <div class="role">{{ p.category }}</div>
-              {% if p.badge %}<span class="badge-s">{{ p.badge }}</span>{% endif %}
-            </div>
-            {% endfor %}
-          </div>
-          <div class="panel">
-            <div class="panel-h">Stack</div>
-            {% for p in projects %}
-            <div class="proj-info {{ 'on' if loop.first }}" data-i="{{ loop.index0 }}">
-              <div class="seg">{% for tech in p.technologies[:6] %}<span>{{ tech }}</span>{% endfor %}</div>
-            </div>
-            {% endfor %}
-          </div>
-          <div class="panel">
-            <div class="panel-h">Playback</div>
-            <div class="ctrls">
-              <button id="prev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5v14M18 6l-8 6 8 6z"/></svg></button>
-              <button id="pause" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
-              <button id="next" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5v14M6 6l8 6-8 6z"/></svg></button>
-              <a class="rec" href="#work" aria-label="See all projects" style="height:34px;border-radius:8px;display:grid;place-items:center;background:#E5533D"><svg viewBox="0 0 24 24" width="14" height="14" fill="#fff"><rect x="7" y="7" width="10" height="10" rx="2"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tline">
-        <div class="t-list">
-          <div class="panel-h">Projects</div>
           {% for p in projects %}
-          <button class="t-row {{ 'on' if loop.first }}" data-i="{{ loop.index0 }}"><i style="background:{{ dots[loop.index0 % 5] }}"></i>{{ p.title.split(' ')[0] }}</button>
+          <div class="proj-info {{ 'on' if loop.first }}" data-i="{{ loop.index0 }}">
+            <div class="panel-h">Project {{ loop.index }} of {{ projects|length }}</div>
+            <h4>{{ p.title }}</h4>
+            <div class="role">{{ p.category }}</div>
+            {% if p.badge %}<span class="badge-s">{{ p.badge }}</span>{% endif %}
+            <div class="panel-h" style="margin-top:22px">Stack</div>
+            <div class="stack">{% for tech in p.technologies %}<span>{{ tech }}</span>{% endfor %}</div>
+            <div class="side-actions">
+              <a class="btn btn-blue" href="#project-{{ loop.index0 }}">See details
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+              {% if p.github %}<a class="btn btn-dark" href="{{ p.github }}" target="_blank" rel="noopener">Source</a>{% endif %}
+            </div>
+          </div>
           {% endfor %}
         </div>
-        <div class="t-track" aria-hidden="true">
-          <div class="ruler">{% for s in range(13) %}<span>0:{{ '%02d' % (s * 2) }}</span>{% endfor %}</div>
-          <div class="lanes">
-            <div class="grid-lines"></div>
-            {% set n = projects|length %}
-            {% for p in projects %}
-            <div class="lane"><span class="clip" style="left:{{ (loop.index0 * 100 / n)|round(2) }}%;width:calc({{ (100 / n)|round(2) }}% - 6px);background:{{ dots[loop.index0 % 5] }}">{{ p.title.split(' ')[0] }}</span></div>
-            {% endfor %}
-            <div class="playhead" id="playhead"></div>
-          </div>
-        </div>
+      </div>
+      <div class="p-tabs" role="tablist" aria-label="Choose a project">
+        {% for p in projects %}
+        <button class="p-tab {{ 'on' if loop.first }}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}">
+          <span class="p-name"><i style="background:{{ dots[loop.index0 % 5] }}"></i>{{ p.title.split(' ')[0] }}</span>
+          <span class="bar"><b style="background:{{ dots[loop.index0 % 5] }}"></b></span>
+        </button>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -651,7 +605,7 @@ footer{padding:34px 0 calc(var(--frame) + 34px)}
 
     <div class="grid" id="grid">
       {% for p in projects %}
-      <article class="card rv {{ 'wide' if loop.first }}" data-cat="{{ p.filter }}">
+      <article class="card rv {{ 'wide' if loop.first }}" id="project-{{ loop.index0 }}" data-cat="{{ p.filter }}">
         <div class="card-text">
           <div class="card-top">
             <span class="card-logo" aria-hidden="true">{{ p.logo }}</span>
@@ -875,49 +829,45 @@ footer{padding:34px 0 calc(var(--frame) + 34px)}
     items.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---------- hero player: projects play one after another ---------- */
+  /* ---------- hero viewer: shows each project for a few seconds, click a tab to jump ---------- */
   var player = document.getElementById('player');
   if (player) {
     var imgs = player.querySelectorAll('.stage img');
     var infos = player.querySelectorAll('.proj-info');
-    var rows = player.querySelectorAll('.t-row');
+    var ptabs = player.querySelectorAll('.p-tab');
     var slug = document.getElementById('slug');
-    var head = document.getElementById('playhead');
-    var pauseBtn = document.getElementById('pause');
-    var n = rows.length, cur = 0, t0 = performance.now(), DUR = 7000, paused = reduce, hover = false, elapsed = 0;
-    var pauseIcon = pauseBtn.innerHTML;
-    var playIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5v14l12-7z"/></svg>';
+    var n = ptabs.length, cur = 0, DUR = 7000, elapsed = 0, last = performance.now(), hold = false;
 
     function show(i){
-      cur = (i + n) % n;
+      cur = (i + n) % n; elapsed = 0;
       imgs.forEach(function(el){ el.classList.toggle('on', +el.dataset.i === cur); });
       infos.forEach(function(el){ el.classList.toggle('on', +el.dataset.i === cur); });
-      rows.forEach(function(el){ el.classList.toggle('on', +el.dataset.i === cur); });
-      slug.textContent = rows[cur].textContent.trim().toLowerCase();
-      t0 = performance.now(); elapsed = 0;
+      ptabs.forEach(function(el, k){
+        el.classList.toggle('on', k === cur);
+        el.setAttribute('aria-selected', k === cur ? 'true' : 'false');
+        el.querySelector('.bar b').style.width = k < cur ? '100%' : '0';
+      });
+      slug.textContent = ptabs[cur].textContent.trim().toLowerCase();
     }
-    function setPaused(p){
-      paused = p;
-      pauseBtn.innerHTML = p ? playIcon : pauseIcon;
-      pauseBtn.setAttribute('aria-label', p ? 'Play' : 'Pause');
-      t0 = performance.now() - elapsed;
-    }
-    rows.forEach(function(el){ el.addEventListener('click', function(){ show(+el.dataset.i); }); });
-    document.getElementById('prev').addEventListener('click', function(){ show(cur - 1); });
-    document.getElementById('next').addEventListener('click', function(){ show(cur + 1); });
-    pauseBtn.addEventListener('click', function(){ setPaused(!paused); });
-    player.addEventListener('mouseenter', function(){ hover = true; });
-    player.addEventListener('mouseleave', function(){ hover = false; t0 = performance.now() - elapsed; });
-    if (reduce) setPaused(true);
+    ptabs.forEach(function(el){ el.addEventListener('click', function(){ show(+el.dataset.i); }); });
+    player.addEventListener('mouseenter', function(){ hold = true; });
+    player.addEventListener('mouseleave', function(){ hold = false; });
+    player.addEventListener('focusin', function(){ hold = true; });
+    player.addEventListener('focusout', function(){ hold = false; });
 
-    (function tick(now){
-      if (!paused && !hover) {
-        elapsed = now - t0;
-        if (elapsed >= DUR) show(cur + 1);
-      } else { t0 = now - elapsed; }
-      if (head) head.style.left = ((cur + Math.min(elapsed / DUR, 1)) / n * 100) + '%';
-      requestAnimationFrame(tick);
-    })(performance.now());
+    if (reduce) {
+      ptabs[0].querySelector('.bar b').style.width = '100%';
+    } else {
+      (function tick(now){
+        var dt = now - last; last = now;
+        if (!hold && !document.hidden) {
+          elapsed += dt;
+          if (elapsed >= DUR) { if (cur === n - 1) show(0); else show(cur + 1); }
+        }
+        ptabs[cur].querySelector('.bar b').style.width = Math.min(elapsed / DUR * 100, 100) + '%';
+        requestAnimationFrame(tick);
+      })(last);
+    }
   }
 
   /* ---------- project filter ---------- */
