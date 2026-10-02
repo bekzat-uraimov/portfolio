@@ -9,10 +9,10 @@ This public repo starts from a snapshot. Development history is private.
 ## Stack
 
 - Flask 3. Serves the page, the crawler files, and a branded 404
-- Vanilla JS. Theme toggle, scroll reveal, project filter, count-up stats
+- Vanilla JS. Intro animation, blur-in scroll reveal, hero project player, project filter
 - Vercel. Hosting, zero-config Flask detection
 
-The page carries its own CSS, JS, and hero image inline. No bundler, no CDN scripts, no runtime API calls.
+The page carries its own CSS and JS inline. Backgrounds and animated project covers live in `static/`. No bundler, no CDN scripts, no runtime API calls.
 
 ## Run locally
 
@@ -29,7 +29,7 @@ Open http://localhost:5050.
 |---|---|
 | `/` | The page. |
 | `/robots.txt`, `/sitemap.xml` | Served from `static/` at the root, where crawlers look. |
-| `/static/*` | `og.png`, `apple-touch-icon.png`. Cached 24h. |
+| `/static/*` | `og.png`, `apple-touch-icon.png`, backgrounds, project covers. Cached 24h. |
 | anything else | Branded 404 (`templates/404.html`). |
 
 No environment variables. No external services.
