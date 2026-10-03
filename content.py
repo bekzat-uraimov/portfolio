@@ -140,7 +140,7 @@ TIMELINE = [
     {"when": "NOW", "title": "akyldoo.ai, Software Engineer", "detail": "ThinkCoder model routing, since March 2026"},
     {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, expected 2028"},
     {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.6"},
-    {"when": "2019 to 2023", "title": "Colorist and video editor", "detail": "Commercial video, before I started programming"},
+    {"when": "2019 to 2023", "title": "Video editor and colorist", "detail": "Commercial video, before I started programming"},
 ]
 
 CONTACT_BLURB = (
