@@ -125,7 +125,7 @@ AWARDS = [
     {
         "event": "CodeDay Fall 2025, Seattle",
         "award": "Best Use of AI, winner",
-        "note": "AI Visual Novel Creator. Led a team of 6 to turn one prompt into a playable visual novel, using Gemini.",
+        "note": "AI Visual Novel Creator. With my team, built a game that turns one prompt into a playable visual novel, using Gemini.",
         "href": "https://github.com/bekzat-uraimov/AI_Visual_Novel_Creator",
     },
 ]
