@@ -76,7 +76,7 @@ PROJECTS = [
         "category": "AI coding assistant",
         "logo": "TC",
         "description": (
-            "An AI coding assistant built by a small team at akyldoo.ai. My part is the "
+            "An AI coding assistant built by a small team at akyldoo.ai. From March to May 2026, my part was the "
             "Python layer that picks which model answers each request."
         ),
         "technologies": ["Python", "LiteLLM", "Ollama"],
