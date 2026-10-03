@@ -119,7 +119,7 @@ AWARDS = [
     {
         "event": "QuackHacks, University of Oregon",
         "award": "Polymarket Track, winner",
-        "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that makes sense of messy Polymarket comments.",
+        "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that sums up Polymarket events and warns about risky bets.",
         "href": "https://github.com/bekzat-uraimov/Poly_Predictor_Kit",
     },
     {
