@@ -9,8 +9,8 @@ PROFILE = {
     "headline": "Software Engineer",
     "subhead": "Backend and AI",
     "blurb": (
-        "CS student in Seattle building backend systems, developer tools, "
-        "and AI-powered applications."
+        "I build backends in Python, mostly the parts that have to be right, "
+        "like payments and who can see what. CS student in Seattle."
     ),
     "status": "Open to software engineering internships and entry level roles",
     "location": "Seattle, WA",
@@ -30,11 +30,10 @@ HERO_CHIPS = [
 
 # The scrolling strip under the hero.
 STACK = [
-    "Python", "Java", "JavaScript",
-    "FastAPI", "Flask", "PostgreSQL",
-    "SQLModel", "Docker", "Git",
-    "GitHub Actions", "REST APIs", "LLM APIs",
-    "LangGraph", "LiteLLM", "C++",
+    "Python", "C++", "Java", "JavaScript",
+    "FastAPI", "Flask", "PostgreSQL", "REST APIs",
+    "pytest", "Docker", "Git", "GitHub Actions",
+    "LiteLLM", "Ollama",
 ]
 
 # Filter pills above the project grid. The key matches a project's `filter`.
@@ -51,18 +50,18 @@ PROJECTS = [
         "category": "Course Platform Backend",
         "logo": "ON",
         "description": (
-            "Backend platform for selling and delivering online courses, with "
-            "authenticated content access, payments, webhooks, and protected media."
+            "A paid course platform for Central Asia, getting ready to launch. "
+            "I built the backend: who can buy, who can watch, and how every payment is checked."
         ),
         "technologies": [
-            "FastAPI", "PostgreSQL", "SQLModel", "Docker",
+            "FastAPI", "PostgreSQL", "Docker",
             "Cloudflare R2", "Kinescope", "FreedomPay",
         ],
         "highlights": [
-            "Made a verified payment webhook the only way to unlock content. Access is never decided by the client or by a payment redirect, only by server-side entitlements.",
-            "Made each payment grant access exactly once. The FreedomPay callback checks signature, amount and order, and a unique constraint stops retried webhooks from granting twice.",
-            "Protected video so only owners can play it: Kinescope DRM asks the server on every play, and course materials are expiring R2 presigned URLs.",
-            "Built the data model (users, courses, modules, lessons, materials) around one entitlements table, the only record of who owns what.",
+            "Stopped double charges and free access. Every payment webhook is checked for signature, amount and duplicates before a course opens.",
+            "Kept paid lessons locked. Access is checked on the server against one table of who owns what, so the browser can never unlock a course by itself.",
+            "Made paid videos hard to share. Kinescope DRM gives short-lived playback tokens to course owners only.",
+            "Let the team run the platform without touching the database, with an admin API for courses, uploads, users, purchases and refunds.",
         ],
         "github": "https://github.com/bekzat-uraimov/oner-platform",
         "demo": "https://oner-web-eta.vercel.app",
@@ -77,20 +76,19 @@ PROJECTS = [
         "category": "AI coding assistant",
         "logo": "TC",
         "description": (
-            "An AI coding assistant made by a small team at akyldoo.ai. My part was the "
-            "Python layer that decides how each problem is worked through."
+            "An AI coding assistant built by a small team at akyldoo.ai. My part is the "
+            "Python layer that picks which model answers each request."
         ),
-        "technologies": ["Python", "LangGraph", "LiteLLM", "Ollama", "Gemini"],
+        "technologies": ["Python", "LiteLLM", "Ollama"],
         "highlights": [
-            "Kept the cost low with LiteLLM routing: simple requests go to a local Qwen2.5-Coder-7B model on Ollama, harder ones to Gemini.",
-            "Each problem runs as its own LangGraph session with its own state, instead of one long prompt.",
-            "Worked on keeping long sessions inside the model context window.",
+            "Cut estimated AI API spend by about 40%. Easy requests go to a free local model (Qwen2.5-Coder 7B on Ollama), and only hard ones go to a paid cloud model.",
+            "Kept long coding sessions from breaking at the model's limit by managing how much context each request carries.",
         ],
         "github": None,
         "demo": None,
         "filter": "ai",
         "image": "/static/thinkcoder_cover.svg",
-        "image_alt": "Animated ThinkCoder diagram: LangGraph session per problem, LiteLLM routes easy requests to a local model and hard ones to Gemini",
+        "image_alt": "Animated ThinkCoder diagram: each problem gets its own session, and LiteLLM sends easy requests to a local model and hard ones to the cloud",
         "badge": "TEAM PROJECT",
         "placeholder": False,
     },
@@ -100,9 +98,9 @@ PROJECTS = [
         "category": "C++ and Python",
         "logo": "FT",
         "description": (
-            "A tiny LLM runs on two workers. If one worker dies in the middle of an answer, "
-            "the other one rebuilds its state from a saved token log and finishes the same answer, "
-            "byte for byte. Early stage, built on top of llama2.c."
+            "Kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
+            "It rebuilds the lost state from a saved token log. A tiny LLM is the workload. "
+            "Early stage, built on top of llama2.c."
         ),
         "technologies": ["C++", "Python", "TCP", "Distributed systems"],
         "highlights": [],
@@ -121,13 +119,13 @@ AWARDS = [
     {
         "event": "QuackHacks, University of Oregon",
         "award": "Polymarket Track, winner",
-        "note": "Poly Predictor Kit, team of six",
+        "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that makes sense of messy Polymarket comments.",
         "href": "https://github.com/bekzat-uraimov/Poly_Predictor_Kit",
     },
     {
         "event": "CodeDay Fall 2025, Seattle",
         "award": "Best Use of AI, winner",
-        "note": "AI Visual Novel Creator, team project",
+        "note": "AI Visual Novel Creator. Led a team of 6 to turn one prompt into a playable visual novel.",
         "href": "https://github.com/bekzat-uraimov/AI_Visual_Novel_Creator",
     },
 ]
@@ -139,9 +137,9 @@ ABOUT = [
 
 TIMELINE = [
     {"when": "NOW", "title": "ONER, Software Engineer", "detail": "Course platform backend, since May 2026"},
-    {"when": "NOW", "title": "akyldoo.ai, Software Engineer", "detail": "ThinkCoder orchestration layer, since March 2026"},
+    {"when": "NOW", "title": "akyldoo.ai, Software Engineer", "detail": "ThinkCoder model routing, since March 2026"},
     {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, expected 2028"},
-    {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA)"},
+    {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.6"},
     {"when": "2019 to 2023", "title": "Colorist and video editor", "detail": "Commercial video, before I started programming"},
 ]
 
