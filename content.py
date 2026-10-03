@@ -61,7 +61,7 @@ PROJECTS = [
             "Stopped double charges and free access. Every payment webhook is checked for signature, amount and duplicates before a course opens.",
             "Kept paid lessons locked. Access is checked on the server against one table of who owns what, so the browser can never unlock a course by itself.",
             "Made paid videos hard to share. Kinescope DRM gives short-lived playback tokens to course owners only.",
-            "Let the team run the platform without touching the database, with an admin API for courses, uploads, users, purchases and refunds.",
+            "Let the team run the platform without touching the database, with a CRUD admin API for courses, uploads, users, purchases and refunds.",
         ],
         "github": "https://github.com/bekzat-uraimov/oner-platform",
         "demo": "https://oner-web-eta.vercel.app",
@@ -99,7 +99,7 @@ PROJECTS = [
         "logo": "FT",
         "description": (
             "Kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
-            "It rebuilds the lost state from a saved token log. A tiny LLM is the workload. "
+            "It rebuilds the lost state from a saved token log, about 1 KB instead of a 3.5 MB KV cache. A tiny LLM is the workload. "
             "Early stage, built on top of llama2.c."
         ),
         "technologies": ["C++", "Python", "TCP", "Distributed systems"],
@@ -119,7 +119,7 @@ AWARDS = [
     {
         "event": "QuackHacks, University of Oregon",
         "award": "Polymarket Track, winner",
-        "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that sums up Polymarket events and warns about risky bets.",
+        "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that sums up any Polymarket event and points out the risks.",
         "href": "https://github.com/bekzat-uraimov/Poly_Predictor_Kit",
     },
     {
