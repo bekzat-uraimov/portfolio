@@ -541,7 +541,7 @@ footer{padding:34px 0 calc(var(--frame) + 34px)}
     <div class="window rv" id="player" aria-label="Project preview">
       <div class="win-bar">
         <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
-        <div class="pill url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>bekzat.dev/work/<b id="slug">{{ projects[0].title.split(' ')[0]|lower }}</b></div>
+        <div class="pill url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>bekzat.dev/work/<b id="slug">{{ (projects[0].short or projects[0].title.split(' ')[0])|lower }}</b></div>
         <span class="lights ghost" aria-hidden="true"><i></i><i></i><i></i></span>
       </div>
       <div class="win-main">
@@ -571,7 +571,7 @@ footer{padding:34px 0 calc(var(--frame) + 34px)}
       <div class="p-tabs" role="tablist" aria-label="Choose a project">
         {% for p in projects %}
         <button class="p-tab {{ 'on' if loop.first }}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}">
-          <span class="p-name"><i style="background:{{ dots[loop.index0 % 5] }}"></i>{{ p.title.split(' ')[0] }}</span>
+          <span class="p-name"><i style="background:{{ dots[loop.index0 % 5] }}"></i>{{ p.short or p.title.split(' ')[0] }}</span>
           <span class="bar"><b style="background:{{ dots[loop.index0 % 5] }}"></b></span>
         </button>
         {% endfor %}

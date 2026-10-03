@@ -95,21 +95,22 @@ PROJECTS = [
         "placeholder": False,
     },
     {
-        "title": "Tokenizer for Central Asian languages",
+        "title": "Fault tolerant inference",
+        "short": "llm-failover",
         "category": "C++ and Python",
-        "logo": "TK",
+        "logo": "FT",
         "description": (
-            "Kyrgyz, Kazakh and Uzbek usually take more tokens than English in AI models, "
-            "so the same sentence costs more and fits less. I want to measure how big that gap is first, "
-            "and then try to build a better tokenizer in C++. Just starting, nothing to show yet."
+            "A tiny LLM runs on two workers. If one worker dies in the middle of an answer, "
+            "the other one rebuilds its state from a saved token log and finishes the same answer, "
+            "byte for byte. Early stage, built on top of llama2.c."
         ),
-        "technologies": ["C++", "Python"],
+        "technologies": ["C++", "Python", "TCP", "Distributed systems"],
         "highlights": [],
-        "github": None,
+        "github": "https://github.com/bekzat-uraimov/llm-failover",
         "demo": None,
-        "filter": "ai",
-        "image": "/static/tokenizer_cover.svg",
-        "image_alt": "Animated comparison of how many tokens one sentence takes in English, Kyrgyz, Kazakh and Uzbek",
+        "filter": "backend ai",
+        "image": "/static/failover_cover.svg",
+        "image_alt": "Animated diagram: worker A streams tokens through a router that logs each one, worker A is killed mid sentence, the router replays its token log to worker B, and B finishes the same answer byte for byte",
         "badge": "NOW BUILDING",
         "placeholder": False,
     },
