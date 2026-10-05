@@ -7,7 +7,7 @@ in PROJECTS; adding an award link means filling in that award's `href`.
 PROFILE = {
     "name": "Bekzat Uraimov",
     "headline": "Software Engineer",
-    "subhead": "Backend and AI",
+    "subhead": "Backend and systems",
     "blurb": (
         "I build backends in Python and systems in C++. CS student in Seattle."
     ),
@@ -50,7 +50,7 @@ PROJECTS = [
         "logo": "ON",
         "description": (
             "A paid course platform for Central Asia, getting ready to launch. "
-            "I built the backend: who can buy, who can watch, and how every payment is checked."
+            "I built the backend: payments, course access and video protection."
         ),
         "technologies": [
             "FastAPI", "PostgreSQL", "Docker",
@@ -58,7 +58,7 @@ PROJECTS = [
         ],
         "highlights": [
             "Stopped double charges and free access. Every payment webhook is checked for signature, amount and duplicates before a course opens.",
-            "Kept paid lessons locked. Every request is checked on the server (JWT login plus one table of who owns what), so the browser can never unlock a course by itself.",
+            "Kept paid lessons locked. Every request is checked on the server (JWT login plus an ownership check), so the browser can never unlock a course by itself.",
             "Made paid videos hard to share. Kinescope DRM gives short-lived playback tokens to course owners only.",
             "Let the team run the platform without touching the database, with a CRUD admin API for courses, file uploads to Cloudflare R2, users, purchases and refunds.",
         ],
@@ -98,7 +98,7 @@ PROJECTS = [
         "logo": "FT",
         "description": (
             "A system design project. Kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
-            "It rebuilds the lost state from a saved token log, about 1 KB instead of a 3.5 MB KV cache. A tiny LLM is the workload. "
+            "It rebuilds the lost state from a small token log (about 1 KB) instead of copying the 3.5 MB KV cache. A tiny LLM is the workload. "
             "Early stage, built on top of llama2.c."
         ),
         "technologies": ["C++", "Python", "TCP", "Distributed systems"],
