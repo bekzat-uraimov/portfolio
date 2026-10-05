@@ -9,8 +9,7 @@ PROFILE = {
     "headline": "Software Engineer",
     "subhead": "Backend and AI",
     "blurb": (
-        "I build backends in Python, mostly the parts that have to be right, "
-        "like payments and who can see what. CS student in Seattle."
+        "I build backends in Python and systems in C++. CS student in Seattle."
     ),
     "status": "Open to software engineering internships and entry level roles",
     "location": "Seattle, WA",
@@ -131,7 +130,7 @@ AWARDS = [
 ]
 
 ABOUT = [
-    "I am a computer science student at Bellevue College, in Seattle. I like backend work the most: APIs, databases, and the parts that have to be right, like payments.",
+    "I am a computer science student at Bellevue College, in Seattle. I build backends in Python, and I'm learning system design with C++.",
     "Right now most of my time goes to ONER and to my classes, Data Structures in C++ and Python for Data Science. I am looking for an internship or entry level role where I can learn from people with more experience than me.",
 ]
 
