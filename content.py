@@ -9,7 +9,7 @@ PROFILE = {
     "headline": "Software Engineer",
     "subhead": "Backend and systems",
     "blurb": (
-        "I build backends in Python and systems in C++. CS student in Seattle."
+        "Software Engineer | C++, Python, FastAPI, PostgreSQL | 2x Hackathon Award Winner | BS CS @ Bellevue College"
     ),
     "status": "Open to software engineering internships and entry level roles",
     "location": "Seattle, WA",
