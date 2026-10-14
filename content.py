@@ -29,10 +29,10 @@ HERO_CHIPS = [
 
 # The scrolling strip under the hero.
 STACK = [
-    "Python", "C++", "Java", "JavaScript",
+    "Python", "C++", "Java", "SQL",
     "FastAPI", "Flask", "PostgreSQL", "REST APIs",
-    "pytest", "Docker", "Git", "GitHub Actions",
-    "LiteLLM", "Ollama",
+    "JWT auth", "pytest", "TCP sockets",
+    "Docker", "Git", "GitHub Actions", "Cloudflare R2",
 ]
 
 # Filter pills above the project grid. The key matches a project's `filter`.
@@ -75,7 +75,7 @@ PROJECTS = [
         "category": "AI coding assistant",
         "logo": "TC",
         "description": (
-            "An AI coding assistant built by a small team at akyldoo.ai. From March to May 2026, my part was the "
+            "An AI coding assistant built by a small team as a Kurultai R&D Club project. From March to May 2026, my part was the "
             "Python layer that picks which model answers each request."
         ),
         "technologies": ["Python", "LiteLLM", "Ollama"],
@@ -88,7 +88,7 @@ PROJECTS = [
         "filter": "ai",
         "image": "/static/thinkcoder_cover.svg",
         "image_alt": "Animated ThinkCoder diagram: each problem gets its own session, and LiteLLM sends easy requests to a local model and hard ones to the cloud",
-        "badge": "TEAM PROJECT",
+        "badge": "CLUB PROJECT",
         "placeholder": False,
     },
     {
@@ -135,10 +135,10 @@ ABOUT = [
 ]
 
 TIMELINE = [
-    {"when": "NOW", "title": "ONER, Software Engineer", "detail": "Course platform backend, since May 2026"},
-    {"when": "2026", "title": "akyldoo.ai, Software Engineer", "detail": "ThinkCoder model routing, March to May 2026"},
-    {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, expected May 2028"},
-    {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.6"},
+    {"when": "NOW", "title": "ONER, Technical Co-founder & Backend Engineer", "detail": "Course platform backend, since May 2026"},
+    {"when": "2026", "title": "ThinkCoder, Kurultai R&D Club", "detail": "AI model routing, March to May 2026"},
+    {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, September 2026 to June 2028"},
+    {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.51"},
     {"when": "2019 to 2023", "title": "Video editor and colorist", "detail": "Commercial video, before I started programming"},
 ]
 
