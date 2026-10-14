@@ -92,9 +92,9 @@ PROJECTS = [
         "placeholder": False,
     },
     {
-        "title": "Fault tolerant inference",
+        "title": "llm-failover",
         "short": "llm-failover",
-        "category": "System design, C++ and Python",
+        "category": "Fault tolerant inference service, C++ and Python",
         "logo": "FT",
         "description": (
             "A system design project. Kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
