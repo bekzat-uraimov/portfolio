@@ -9,7 +9,7 @@ PROFILE = {
     "headline": "Software Engineer",
     "subhead": "Backend and systems",
     "blurb": (
-        "Software Engineer | C++, Python, FastAPI, PostgreSQL | 2x Hackathon Award Winner | BS CS @ Bellevue College"
+        "Backend engineer building payments and AI systems. BS CS at Bellevue College, 2x hackathon winner."
     ),
     "status": "Open to software engineering internships and entry level roles",
     "location": "Seattle, WA",
@@ -23,8 +23,7 @@ PROFILE = {
 # Shown as chips under the hero headline.
 HERO_CHIPS = [
     "Seattle, WA",
-    "Python, Java, C++",
-    "FastAPI, PostgreSQL, Docker",
+    "Python, C++, Java, FastAPI, PostgreSQL, Docker",
 ]
 
 # The scrolling strip under the hero.
