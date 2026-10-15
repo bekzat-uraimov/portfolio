@@ -1,4 +1,7 @@
+import hashlib
 import mimetypes
+from functools import cache
+from pathlib import Path
 
 from flask import Flask, render_template, request, send_from_directory
 
@@ -12,6 +15,19 @@ app = Flask(__name__)
 
 # the page is fully self-contained, so the only thing that changes is the assets
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 60 * 60 * 24
+
+
+# mtime is only here as part of the cache key, so a file edited in dev gets a new hash
+@cache
+def file_hash(path: Path, mtime: int) -> str:
+    return hashlib.sha1(path.read_bytes()).hexdigest()[:8]
+
+
+@app.template_global()
+def asset(url: str) -> str:
+    # browsers keep static files for a day, so a changed file needs a new url
+    path = Path(app.static_folder) / url.removeprefix("/static/")
+    return f"{url}?v={file_hash(path, path.stat().st_mtime_ns)}"
 
 
 @app.route("/")
