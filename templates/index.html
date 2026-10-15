@@ -384,7 +384,7 @@ footer{background:var(--red);color:var(--ink);padding:0 0 34px}
       <div class="win-main">
         <div class="stage">
           {% for p in projects %}
-          {% if p.image %}<img src="{{ p.image }}" alt="{{ p.image_alt }}" width="1600" height="1000" class="{{ 'on' if loop.first }}" data-i="{{ loop.index0 }}" {% if not loop.first %}loading="lazy"{% endif %} decoding="async">{% endif %}
+          {% if p.image %}<img src="{{ asset(p.image) }}" alt="{{ p.image_alt }}" width="1600" height="1000" class="{{ 'on' if loop.first }}" data-i="{{ loop.index0 }}" {% if not loop.first %}loading="lazy"{% endif %} decoding="async">{% endif %}
           {% endfor %}
         </div>
         <div class="side">
@@ -478,7 +478,7 @@ footer{background:var(--red);color:var(--ink);padding:0 0 34px}
         </div>
         <div class="shot">
           {% if p.image %}
-          <img src="{{ p.image }}" alt="{{ p.image_alt }}" width="1600" height="1000" loading="lazy" decoding="async">
+          <img src="{{ asset(p.image) }}" alt="{{ p.image_alt }}" width="1600" height="1000" loading="lazy" decoding="async">
           {% else %}
           <div class="mock" aria-hidden="true">
             <div class="mock-bar"><i></i><i></i><i></i></div>
