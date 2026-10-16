@@ -12,6 +12,8 @@ PROFILE = {
         "Backend engineer building payments and AI systems. BS CS at Bellevue College, 2x hackathon winner."
     ),
     "status": "Open to software engineering internships and entry level roles",
+    # the sticker on the corner of the project laptop. decorative, so keep it a repeat of the blurb
+    "sticker": "2x hackathon winner",
     "location": "Seattle, WA",
     "email": "bkzturaimov@gmail.com",
     "github": "https://github.com/bekzat-uraimov",

@@ -21,27 +21,34 @@ body{
 }
 .card{max-width:520px;text-align:center}
 /* same face as the home page, caught off guard */
-.face{width:150px;height:auto;margin:0 auto 28px;display:block}
+.face{width:150px;height:auto;margin:0 auto 28px;display:block;overflow:visible}
 .code{
   display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;
   font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;
-  padding:6px 13px;border-radius:999px;box-shadow:inset 0 0 0 1.5px #120506;
+  padding:6px 13px;border-radius:999px;border:2px solid #120506;background:#FFFBF5;
+  box-shadow:1px 1px 0 #120506,2px 2px 0 #120506,3px 3px 0 #120506;
 }
 .code::before{content:'';width:7px;height:7px;border-radius:50%;background:#F0322F}
-h1{font-size:clamp(40px,8vw,64px);font-weight:500;font-stretch:84%;letter-spacing:-.04em;line-height:.95}
+h1{font-size:clamp(40px,8vw,64px);font-weight:650;font-stretch:84%;letter-spacing:-.03em;line-height:.96}
 p{margin-top:16px;line-height:1.55;font-size:17px;color:#5E5450}
+/* same chunky button as the home page: lifts on hover, sinks into its side on press */
 a.home{
   display:inline-flex;align-items:center;min-height:44px;margin-top:30px;padding:0 22px;border-radius:999px;
-  background:#120506;color:#F6EFE6;font-weight:500;text-decoration:none;transition:background .15s;
+  border:2px solid #120506;background:#F0322F;color:#120506;font-weight:600;text-decoration:none;
+  box-shadow:1px 1px 0 #120506,2px 2px 0 #120506,3px 3px 0 #120506,4px 4px 0 #120506;
+  transition:translate .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s cubic-bezier(.34,1.56,.64,1);
 }
-a.home:hover{background:#2E1416}
-a.home:focus-visible{outline:2.5px solid #120506;outline-offset:3px}
+a.home:hover{translate:-2px -2px;box-shadow:1px 1px 0 #120506,2px 2px 0 #120506,3px 3px 0 #120506,4px 4px 0 #120506,5px 5px 0 #120506,6px 6px 0 #120506}
+a.home:active{translate:4px 4px;box-shadow:0 0 0 #120506;transition-duration:.06s}
+a.home:focus-visible{outline:2.5px solid #120506;outline-offset:4px}
+@media (prefers-reduced-motion:reduce){a.home{transition:none}}
 </style>
 </head>
 <body>
   <main class="card">
     <svg class="face" viewBox="0 0 240 240" aria-hidden="true">
-      <circle cx="120" cy="124" r="116" fill="#F0322F"/>
+      <circle cx="128" cy="132" r="116" fill="#120506"/>
+      <circle cx="120" cy="124" r="116" fill="#F0322F" stroke="#120506" stroke-width="6"/>
       <circle cx="40" cy="142" r="16" fill="#F6EFE6"/>
       <circle cx="200" cy="142" r="16" fill="#F6EFE6"/>
       <circle cx="120" cy="134" r="82" fill="#F6EFE6"/>
