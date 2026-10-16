@@ -8,11 +8,9 @@ PROFILE = {
     "name": "Bekzat Uraimov",
     "headline": "Software Engineer",
     "subhead": "Backend and systems",
-    "blurb": (
-        "Backend engineer building payments and AI systems. BS CS at Bellevue College, 2x hackathon winner."
-    ),
+    "blurb": "Building backend, distributed systems and ML projects.",
     "status": "Open to software engineering internships and entry level roles",
-    # the sticker on the corner of the project laptop. decorative, so keep it a repeat of the blurb
+    # the sticker on the corner of the project laptop. hidden from screen readers, the awards section says the same
     "sticker": "2x hackathon winner",
     "location": "Seattle, WA",
     "email": "bkzturaimov@gmail.com",
