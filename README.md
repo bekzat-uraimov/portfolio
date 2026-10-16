@@ -9,7 +9,7 @@ This public repo starts from a snapshot. Development history is private.
 ## Stack
 
 - Flask 3. Serves the page, the crawler files, and a branded 404
-- Vanilla JS. Intro animation, blur-in scroll reveal, hero project player, project filter
+- Vanilla JS. Pointer tilt on the project screens, the face's eyes and blink, hero project player, project filter
 - Vercel. Hosting, zero-config Flask detection
 
 The page carries its own CSS and JS inline. Backgrounds and animated project covers live in `static/`. No bundler, no CDN scripts, no runtime API calls.
