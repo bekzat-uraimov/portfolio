@@ -70,6 +70,26 @@ PROJECTS = [
         "placeholder": False,
     },
     {
+        "title": "llm-failover",
+        "short": "llm-failover",
+        "category": "Fault tolerant inference service, C++ and Python",
+        "logo": "FT",
+        "description": (
+            "A system design project. Kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
+            "It rebuilds the lost state from a small token log (about 1 KB) instead of copying the 3.5 MB KV cache. A tiny LLM is the workload. "
+            "Early stage, built on top of llama2.c."
+        ),
+        "technologies": ["C++", "Python", "TCP", "Distributed systems"],
+        "highlights": [],
+        "github": "https://github.com/bekzat-uraimov/llm-failover",
+        "demo": None,
+        "filter": "backend ai",
+        "image": "/static/failover_cover.svg",
+        "image_alt": "Animated diagram: worker A streams tokens through a router that logs each one, worker A is killed mid sentence, the router replays its token log to worker B, and B finishes the same answer byte for byte",
+        "badge": "NOW BUILDING",
+        "placeholder": False,
+    },
+    {
         "title": "ThinkCoder",
         "category": "AI coding assistant",
         "logo": "TC",
@@ -91,23 +111,27 @@ PROJECTS = [
         "placeholder": False,
     },
     {
-        "title": "llm-failover",
-        "short": "llm-failover",
-        "category": "Fault tolerant inference service, C++ and Python",
-        "logo": "FT",
+        "title": "Heart Disease Models",
+        "short": "heart-disease",
+        "category": "Machine learning model comparison, Python",
+        "logo": "HD",
         "description": (
-            "A system design project. Kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
-            "It rebuilds the lost state from a small token log (about 1 KB) instead of copying the 3.5 MB KV cache. A tiny LLM is the workload. "
-            "Early stage, built on top of llama2.c."
+            "A machine learning study on 297 patients. I trained Logistic Regression and XGBoost to predict heart disease, "
+            "then checked what L2 regularization does to accuracy and to the model's coefficients."
         ),
-        "technologies": ["C++", "Python", "TCP", "Distributed systems"],
-        "highlights": [],
-        "github": "https://github.com/bekzat-uraimov/llm-failover",
+        "technologies": ["Python", "scikit-learn", "XGBoost", "pandas", "matplotlib"],
+        "highlights": [
+            "Got the best test accuracy, 90.0%, from Logistic Regression with stronger L2 regularization (C=0.1). It scored lower on training data than the default model and higher on new patients.",
+            "Caught XGBoost overfitting. It scored 100% on training data but only 85.0% on the 60 test patients, the worst of the three.",
+            "Fit the scaler on the training split only, so nothing from the test patients leaked into training.",
+            "Wrote down the limits. C was picked with the test set and 60 patients is a small sample, so the next step is cross-validation.",
+        ],
+        "github": "https://github.com/bekzat-uraimov/heart-disease-classification-model-comparison",
         "demo": None,
-        "filter": "backend ai",
-        "image": "/static/failover_cover.svg",
-        "image_alt": "Animated diagram: worker A streams tokens through a router that logs each one, worker A is killed mid sentence, the router replays its token log to worker B, and B finishes the same answer byte for byte",
-        "badge": "NOW BUILDING",
+        "filter": "ai",
+        "image": "/static/heart_cover.svg",
+        "image_alt": "Animated chart: 60 held-out patients are scored by three models in turn, right answers in black and wrong ones in red. Logistic Regression gets 52 right with C=1 and 54 with C=0.1, XGBoost gets 51 after scoring 100% on its training data",
+        "badge": "ML STUDY",
         "placeholder": False,
     },
 ]
