@@ -193,6 +193,18 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
 .p-tab{flex-shrink:0;padding:7px 14px;border-radius:10px;color:var(--dim);font-size:14px;border:1.5px solid rgba(246,239,230,.3);box-shadow:0 4px 0 rgba(246,239,230,.22);transition:translate .15s var(--spring),box-shadow .15s,color .15s}
 .p-tab:hover{color:var(--cream)}
 .p-tab.on{translate:0 4px;box-shadow:0 0 0 rgba(246,239,230,.22);background:var(--cream);border-color:var(--cream);color:var(--ink)}
+/* contents screen: every project in one line, click to jump to its card */
+.toc{padding:10px 14px 6px}
+.toc-list{list-style:none;margin:6px 0 0}
+.toc-row{display:grid;grid-template-columns:200px 1fr auto;gap:20px;align-items:baseline;padding:16px 4px;border-bottom:1px solid rgba(246,239,230,.12);transition:background .2s,padding .2s}
+.toc-row:hover{background:rgba(246,239,230,.06);padding-left:12px}
+.toc-name{font-size:clamp(22px,2.4vw,30px);font-weight:650;font-stretch:84%;letter-spacing:-.03em;line-height:1.1}
+.toc-sum{font-size:16px;color:var(--dim);line-height:1.45}
+.toc-go{font-family:var(--mono);color:var(--red-hi);font-size:18px}
+.toc-awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.toc-award{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1.5px solid rgba(246,239,230,.3);font-family:var(--mono);font-size:12px;color:var(--cream)}
+.toc-award:hover{border-color:var(--cream)}
+.toc-award b{color:var(--red-hi)}
 
 /* ---------- sections ---------- */
 section{padding:128px 0}
@@ -245,6 +257,7 @@ section{padding:128px 0}
 .award-event{font-family:var(--mono);font-size:12px;color:var(--red-ink)}
 .award h3{font-size:clamp(26px,2.6vw,34px);font-weight:650;font-stretch:84%;letter-spacing:-.03em;margin-top:12px;line-height:1.05}
 .award-note{font-size:15px;color:var(--muted);margin-top:12px}
+.award-links{margin-top:18px}
 
 /* ---------- about ---------- */
 .about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
@@ -312,6 +325,10 @@ footer{background:var(--red);color:var(--ink);padding:0 0 34px}
   .window::before{top:9px}
   .sticker{top:-16px;right:16px;padding:6px 11px;font-size:11px}
   .side{padding:4px 6px 6px}
+  .toc{padding:6px 6px 4px}
+  .toc-row{grid-template-columns:1fr auto;gap:4px 12px}
+  .toc-sum{grid-column:1;grid-row:2}
+  .toc-go{grid-column:2;grid-row:1 / span 2;align-self:center}
   section{padding:84px 0}
   #contact{padding:96px 0 84px}
   .grid{grid-template-columns:1fr}
@@ -416,44 +433,24 @@ footer{background:var(--red);color:var(--ink);padding:0 0 34px}
   <!-- ============ HERO WINDOW: a simple project viewer ============ -->
   {% set dots = ['#1D1D1F', '#1D1D1F', '#1D1D1F', '#1D1D1F', '#1D1D1F'] %}
   <div class="wrap">
-    <div class="window rv" id="player" aria-label="Project preview" data-tilt="3">
+    <div class="window rv" id="contents" aria-label="What I built" data-tilt="3">
       {% if profile.sticker %}<span class="sticker" aria-hidden="true"><b>★</b>{{ profile.sticker }}</span>{% endif %}
-      <div class="win-bar">
-        <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
-        <div class="pill url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>bekzat.dev/work/<b id="slug">{{ (projects[0].short or projects[0].title.split(' ')[0])|lower }}</b></div>
-        <span class="lights ghost" aria-hidden="true"><i></i><i></i><i></i></span>
-      </div>
-      <div class="win-main">
-        <div class="stage">
+      <div class="toc">
+        <div class="panel-h">What I built</div>
+        <ol class="toc-list">
           {% for p in projects %}
-          {% if p.image %}<img src="{{ asset(p.image) }}" alt="{{ p.image_alt }}" width="1600" height="1000" class="{{ 'on' if loop.first }}" data-i="{{ loop.index0 }}" {% if not loop.first %}loading="lazy"{% endif %} decoding="async">{% endif %}
+          <li><a class="toc-row" href="#project-{{ loop.index0 }}">
+            <span class="toc-name">{{ p.title }}</span>
+            <span class="toc-sum">{{ p.summary }}</span>
+            <span class="toc-go" aria-hidden="true">&rarr;</span>
+          </a></li>
+          {% endfor %}
+        </ol>
+        <div class="toc-awards">
+          {% for a in awards %}
+          <a class="toc-award" href="#awards"><b aria-hidden="true">★</b>{{ a.award }} &middot; {{ a.event }}</a>
           {% endfor %}
         </div>
-        <div class="side">
-          {% for p in projects %}
-          <div class="proj-info {{ 'on' if loop.first }}" data-i="{{ loop.index0 }}">
-            <div class="panel-h">Project {{ loop.index }} of {{ projects|length }}</div>
-            <h4>{{ p.title }}</h4>
-            <div class="role">{{ p.category }}</div>
-            {% if p.badge %}<span class="badge-s">{{ p.badge }}</span>{% endif %}
-            <div class="panel-h" style="margin-top:22px">Stack</div>
-            <div class="stack">{% for tech in p.technologies %}<span>{{ tech }}</span>{% endfor %}</div>
-            <div class="side-actions">
-              <a class="btn btn-blue" href="#project-{{ loop.index0 }}">See details
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-              {% if p.github %}<a class="btn btn-dark" href="{{ p.github }}" target="_blank" rel="noopener">Source</a>{% endif %}
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="p-tabs" role="tablist" aria-label="Choose a project">
-        {% for p in projects %}
-        <button class="p-tab {{ 'on' if loop.first }}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}">
-          <span class="p-name"><i style="background:{{ dots[loop.index0 % 5] }}"></i>{{ p.short or p.title.split(' ')[0] }}</span>
-          <span class="bar"><b style="background:{{ dots[loop.index0 % 5] }}"></b></span>
-        </button>
-        {% endfor %}
       </div>
     </div>
   </div>
@@ -500,7 +497,7 @@ footer{background:var(--red);color:var(--ink);padding:0 0 34px}
           </ul>
           {% endif %}
           <div class="tags">{% for tech in p.technologies %}<span class="tag">{{ tech }}</span>{% endfor %}</div>
-          {% if p.demo or p.github %}
+          {% if p.demo or p.github or p.links %}
           <div class="actions">
             {% if p.demo %}
             <a class="btn btn-blue" href="{{ p.demo }}" target="_blank" rel="noopener" aria-label="Open the {{ p.title }} site">
@@ -515,6 +512,9 @@ footer{background:var(--red);color:var(--ink);padding:0 0 34px}
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>Source
             </a>
             {% endif %}
+            {% for label, url in p.links or [] %}
+            <a class="btn btn-dark" href="{{ url }}" target="_blank" rel="noopener">{{ label }}</a>
+            {% endfor %}
           </div>
           {% endif %}
         </div>
@@ -544,11 +544,16 @@ footer{background:var(--red);color:var(--ink);padding:0 0 34px}
     <div class="sec-head"><h2 class="words">Awards</h2></div>
     <div class="awards">
       {% for a in awards %}
-      {% if a.href %}<a class="award rv" href="{{ a.href }}" target="_blank" rel="noopener" data-tilt="4">{% else %}<div class="award rv" data-tilt="4">{% endif %}
+      <div class="award rv" data-tilt="4">
         <div class="award-event">{{ a.event }}</div>
         <h3>{{ a.award }}</h3>
         {% if a.note %}<div class="award-note">{{ a.note }}</div>{% endif %}
-      {% if a.href %}</a>{% else %}</div>{% endif %}
+        {% if a.links %}
+        <div class="actions award-links">
+          {% for label, url in a.links %}<a class="btn {{ 'btn-blue' if loop.first else 'btn-dark' }}" href="{{ url }}" target="_blank" rel="noopener">{{ label }}</a>{% endfor %}
+        </div>
+        {% endif %}
+      </div>
       {% endfor %}
     </div>
   </div>

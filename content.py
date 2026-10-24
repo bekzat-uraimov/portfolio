@@ -62,6 +62,7 @@ PROJECTS = [
             "Made paid videos hard to share. Course videos are what students pay for, so they play through Kinescope DRM with short-lived tokens that only course owners get.",
             "Let the team run the platform without touching the database, with a CRUD admin API for courses, file uploads to Cloudflare R2, users, purchases and refunds.",
         ],
+        "summary": "Payments that never charge twice, and paid lessons only owners can open",
         "github": "https://github.com/bekzat-uraimov/oner-platform",
         "demo": "https://oner-web-eta.vercel.app",
         "filter": "backend",
@@ -82,6 +83,7 @@ PROJECTS = [
         ),
         "technologies": ["C++", "Python", "TCP", "Distributed systems"],
         "highlights": [],
+        "summary": "An LLM answer that survives a crashed server, byte for byte",
         "github": "https://github.com/bekzat-uraimov/llm-failover",
         "demo": None,
         "filter": "backend ai",
@@ -102,6 +104,11 @@ PROJECTS = [
         "highlights": [
             "Cut estimated AI API spend by about 40%. Easy requests go to a free local model (Qwen2.5-Coder 7B on Ollama), and only hard ones go to a paid cloud model.",
             "Kept long coding sessions from breaking at the model's limit by managing how much context each request carries.",
+        ],
+        "summary": "About 40% lower estimated AI cost by sending easy questions to a free local model",
+        "links": [
+            ("akyldoo.ai", "https://akyldoo.ai"),
+            ("Kurultai R&D Club", "https://www.linkedin.com/company/kurultai-r-d-club"),
         ],
         "github": None,
         "demo": None,
@@ -127,6 +134,7 @@ PROJECTS = [
             "Fit the scaler on the training split only, so nothing from the test patients leaked into training.",
             "Wrote down the limits. C was picked with the test set and 60 patients is a small sample, so the next step is cross-validation.",
         ],
+        "summary": "Caught XGBoost overfitting (100% train, 85% test) next to a regularized model",
         "github": "https://github.com/bekzat-uraimov/heart-disease-classification-model-comparison",
         "demo": None,
         "filter": "ai",
@@ -143,13 +151,19 @@ AWARDS = [
         "event": "QuackHacks, University of Oregon",
         "award": "Polymarket Track, winner",
         "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that uses Gemini to sum up any Polymarket event and its risks, and rates its comments as emotional or rational. I built the comment collector that feeds our model.",
-        "href": "https://github.com/bekzat-uraimov/Poly_Predictor_Kit",
+        "links": [
+            ("Devpost", "https://devpost.com/software/poly-predictor-kit"),
+            ("Code", "https://github.com/bekzat-uraimov/Poly_Predictor_Kit"),
+        ],
     },
     {
         "event": "CodeDay Fall 2025, Seattle",
         "award": "Best Use of AI, winner",
         "note": "AI Visual Novel Creator. With my team of 6, built a game that turns one prompt into a playable visual novel, using Gemini. I built the Ren'Py game loop.",
-        "href": "https://github.com/bekzat-uraimov/AI_Visual_Novel_Creator",
+        "links": [
+            ("CodeDay showcase", "https://showcase.codeday.org/project/cmhgqspw91903j5my04z26yk6"),
+            ("Code", "https://github.com/bekzat-uraimov/AI_Visual_Novel_Creator"),
+        ],
     },
 ]
 
