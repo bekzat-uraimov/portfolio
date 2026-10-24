@@ -158,7 +158,7 @@ ABOUT = [
 ]
 
 TIMELINE = [
-    {"when": "NOW", "title": "ONER, Technical Co-founder & Backend Engineer", "detail": "Course platform backend, since May 2026"},
+    {"when": "NOW", "title": "ONER, Backend Engineer & Co-founder", "detail": "Course platform backend, since May 2026"},
     {"when": "2026", "title": "ThinkCoder, Kurultai R&D Club", "detail": "AI model routing, March to May 2026"},
     {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, September 2026 to June 2028"},
     {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.51"},
