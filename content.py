@@ -32,6 +32,7 @@ STACK = [
     "FastAPI", "Flask", "PostgreSQL", "REST APIs",
     "JWT auth", "pytest", "TCP sockets",
     "Docker", "Git", "GitHub Actions", "Cloudflare R2",
+    "scikit-learn", "XGBoost", "pandas",
 ]
 
 # Filter pills above the project grid. The key matches a project's `filter`.
@@ -56,9 +57,9 @@ PROJECTS = [
             "Cloudflare R2", "Kinescope", "FreedomPay",
         ],
         "highlights": [
-            "Stopped double charges and free access. Every payment webhook is checked for signature, amount and duplicates before a course opens.",
-            "Kept paid lessons locked. Every request is checked on the server (JWT login plus an ownership check), so the browser can never unlock a course by itself.",
-            "Made paid videos hard to share. Kinescope DRM gives short-lived playback tokens to course owners only.",
+            "Stopped double charges and free access. Payment providers can send the same webhook more than once and students double-click buy, so every webhook is checked for signature, amount and duplicates before a course opens, and a repeat click returns the same order.",
+            "Kept paid lessons locked. Browser code can be changed, so every request is checked on the server (JWT login plus an ownership check) and the browser can never unlock a course by itself.",
+            "Made paid videos hard to share. Course videos are what students pay for, so they play through Kinescope DRM with short-lived tokens that only course owners get.",
             "Let the team run the platform without touching the database, with a CRUD admin API for courses, file uploads to Cloudflare R2, users, purchases and refunds.",
         ],
         "github": "https://github.com/bekzat-uraimov/oner-platform",
@@ -75,7 +76,7 @@ PROJECTS = [
         "category": "Fault tolerant inference service, C++ and Python",
         "logo": "FT",
         "description": (
-            "A system design project. Kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
+            "When an LLM server crashes, the answer it was writing is lost and the user has to start over. This system design project keeps the answer going: kill a worker in the middle of an answer, and another one finishes it, byte for byte. "
             "It rebuilds the lost state from a small token log (about 1 KB) instead of copying the 3.5 MB KV cache. A tiny LLM is the workload. "
             "Early stage, built on top of llama2.c."
         ),
@@ -141,13 +142,13 @@ AWARDS = [
     {
         "event": "QuackHacks, University of Oregon",
         "award": "Polymarket Track, winner",
-        "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that uses Gemini to sum up any Polymarket event and its risks.",
+        "note": "Poly Predictor Kit. Led a team of 6 to build a Chrome extension that uses Gemini to sum up any Polymarket event and its risks, and rates its comments as emotional or rational. I built the comment collector that feeds our model.",
         "href": "https://github.com/bekzat-uraimov/Poly_Predictor_Kit",
     },
     {
         "event": "CodeDay Fall 2025, Seattle",
         "award": "Best Use of AI, winner",
-        "note": "AI Visual Novel Creator. With my team, built a game that turns one prompt into a playable visual novel, using Gemini.",
+        "note": "AI Visual Novel Creator. With my team of 6, built a game that turns one prompt into a playable visual novel, using Gemini. I built the Ren'Py game loop.",
         "href": "https://github.com/bekzat-uraimov/AI_Visual_Novel_Creator",
     },
 ]
@@ -162,7 +163,7 @@ TIMELINE = [
     {"when": "2026", "title": "ThinkCoder, Kurultai R&D Club", "detail": "AI model routing, March to May 2026"},
     {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, September 2026 to June 2028"},
     {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.51"},
-    {"when": "2019 to 2023", "title": "Video editor and colorist", "detail": "Commercial video, before I started programming"},
+    {"when": "2019 to 2023", "title": "Metr Production Studio, Director and Colorist", "detail": "Planned commercials with clients, led shoot crews and trained junior editors, before I started programming"},
 ]
 
 CONTACT_BLURB = (
