@@ -176,7 +176,7 @@ TIMELINE = [
     {"when": "2026", "title": "akyldoo.ai, AI Engineer Intern", "detail": "Model routing for ThinkCoder, March to May 2026"},
     {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, September 2026 to June 2028"},
     {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.51"},
-    {"when": "2019 to 2023", "title": "Metr Production Studio, Director and Colorist", "detail": "Planned commercials with clients, led shoot crews and trained junior editors, before I started programming"},
+    {"when": "2021 to 2023", "title": "Antares and Mostcreative Agency, Video Editor and Colorist", "detail": "Delivered commercial videos for clients, from shoot to final color grade, before I started programming"},
 ]
 
 CONTACT_BLURB = (
