@@ -49,7 +49,7 @@ PROJECTS = [
         "category": "Course Platform Backend",
         "logo": "ON",
         "description": (
-            "A paid course platform for Central Asia, getting ready to launch. "
+            "A paid course platform for Central Asia, in closed testing with 10 users. "
             "I built the backend: payments, course access and video protection."
         ),
         "technologies": [
@@ -68,7 +68,7 @@ PROJECTS = [
         "filter": "backend",
         "image": "/static/oner_cover.svg",
         "image_alt": "Animated ONER system design: checkout, signed FreedomPay webhook, entitlement granted once, DRM video for owners only",
-        "badge": "LAUNCHING SOON",
+        "badge": "CLOSED TESTING",
         "placeholder": False,
     },
     {
@@ -97,8 +97,8 @@ PROJECTS = [
         "category": "AI coding assistant",
         "logo": "TC",
         "description": (
-            "An AI coding assistant built by a small team as a Kurultai R&D Club project. From March to May 2026, my part was the "
-            "Python layer that picks which model answers each request."
+            "ThinkCoder is akyldoo.ai's AI coding assistant. As an AI Engineer Intern from March to May 2026, I built the "
+            "Python model routing layer that decides which model answers each request."
         ),
         "technologies": ["Python", "LiteLLM", "Ollama"],
         "highlights": [
@@ -108,14 +108,13 @@ PROJECTS = [
         "summary": "About 40% lower estimated AI cost by sending easy questions to a free local model",
         "links": [
             ("akyldoo.ai", "https://akyldoo.ai"),
-            ("Kurultai R&D Club", "https://www.linkedin.com/company/kurultai-r-d-club"),
         ],
         "github": None,
         "demo": None,
         "filter": "ai",
         "image": "/static/thinkcoder_cover.svg",
         "image_alt": "Animated ThinkCoder diagram: each problem gets its own session, and LiteLLM sends easy requests to a local model and hard ones to the cloud",
-        "badge": "CLUB PROJECT",
+        "badge": "INTERNSHIP",
         "placeholder": False,
     },
     {
@@ -174,7 +173,7 @@ ABOUT = [
 
 TIMELINE = [
     {"when": "NOW", "title": "ONER, Backend Engineer & Co-founder", "detail": "Course platform backend, since May 2026"},
-    {"when": "2026", "title": "ThinkCoder, Kurultai R&D Club", "detail": "AI model routing, March to May 2026"},
+    {"when": "2026", "title": "akyldoo.ai, AI Engineer Intern", "detail": "Model routing for ThinkCoder, March to May 2026"},
     {"when": "IN PROGRESS", "title": "Bellevue College", "detail": "BS in Computer Science, September 2026 to June 2028"},
     {"when": "2025 to 2026", "title": "Cascadia College", "detail": "Associate degree (DTA), GPA 3.51"},
     {"when": "2019 to 2023", "title": "Metr Production Studio, Director and Colorist", "detail": "Planned commercials with clients, led shoot crews and trained junior editors, before I started programming"},
